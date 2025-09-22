@@ -17,11 +17,11 @@
 \end{proof}
 
 \begin{question}
-    What is an open ball $B(x_0  ,1)$ in $\R$ and $\mathbb{C}$? What is an open ball in $C[a,b]$?
+    What is an open ball $B(x_0  ,1)$ in $\R$ and $\C$? What is an open ball in $C[a,b]$?
     \label{section1.3-2}
 \end{question}
 \begin{proof}
-    In $\R$, the open ball is the set of points $B(x_0 , 1) = \{x_0 \pm \epsilon \mid \abs{\epsilon} \l 1\}$. In $\mathbb{C}$, let $x_0 = a + \iota b$, then the open ball is defined as $B(x_0 , 1) = \{(a + \epsilon_1) + \iota (b + \epsilon_2) \mid \sqrt{\epsilon_1^2 + \epsilon_2^2} \l 1 \}$. Finally, let $x_0 \in C[a,b]$ be a function of $t$. Then, under the metric
+    In $\R$, the open ball is the set of points $B(x_0 , 1) = \{x_0 \pm \epsilon \mid \abs{\epsilon} \l 1\}$. In $\C$, let $x_0 = a + \iota b$, then the open ball is defined as $B(x_0 , 1) = \{(a + \epsilon_1) + \iota (b + \epsilon_2) \mid \sqrt{\epsilon_1^2 + \epsilon_2^2} \l 1 \}$. Finally, let $x_0 \in C[a,b]$ be a function of $t$. Then, under the metric
     \[d(x,y) = \max_{t \in [a,b]} \abs{x(t) - y(t)}\]
     we have the open ball to be defined as
     \[B(x_0 , 1) = \left\{x_0(t) \pm \epsilon(t) \mid \abs{\max_{t \in [a,b]}\epsilon(t)} \l 1\right\}.\]
@@ -68,7 +68,7 @@
 \end{proof}
 
 \begin{question}
-    Describe the closure of each of the sets: the integers on $\R$, the rational numbers on $\R$, the complex numbers with rational real and imaginary parts in $\mathbb{C}$, and the disk $\{z \mid \abs{z} \l 1\} \subset \mathbb{C}$.
+    Describe the closure of each of the sets: the integers on $\R$, the rational numbers on $\R$, the complex numbers with rational real and imaginary parts in $\C$, and the disk $\{z \mid \abs{z} \l 1\} \subset \C$.
 \end{question}
 \begin{proof}
     The closure of a set includes all points of the set and all it's limit points. The limit points of a set are points such \emph{every} neighborhood of the point consists of at least one element of the set distinct from the point. Clearly, for the set of integers on $\R$, the closure is the set of integers itself. In other words, there are no limit points for the set of integers. Let $z$ be an integer, then drawing an $\epsilon-$neighborhood around $z$ with $\epsilon \l 1$ ensures that there is no integer apart from $z$ in this neighborhood. Same is the case for any rational number $q$, any $\epsilon-$neighborhood around $q$ may not consist of an integer.
@@ -76,7 +76,7 @@
     For the set of rationals on $\R$, the closure is $\R$. This is because choosing any point in $\R$ will have atleast one rational number in it's neighborhood. Same is the case for the set of complex numbers with rational real and imaginary parts. You can always find a new complex number with rational real and imaginary parts in a neighborhood. 
 
     Finally, for the open disk of radius $1$ in the complex numbers, defined as
-    \[\{z \mid \abs{z} \l 1\} \subset \mathbb{C}\]
+    \[\{z \mid \abs{z} \l 1\} \subset \C\]
     the accumulation points will be 
      \[\{z \mid \abs{z} \leq 1\}.\]
      Since any neighborhood of a "boundary point" will intersect with the disk, they also are accumulation points, and hence, the closure is simply the closed disk of radius 1.
@@ -132,7 +132,7 @@
 \end{proof}
 
 \begin{question}
-    A boundary point of $A \subset (X,d)$ is a point of $X$ (which may or may not be in $A$) such that every neighborhood of $x$ contains points of $A$ as well as points not belonging to $A$. The boundary of $A$ is defined to be the set of all boundary points of $A$. Find the boundaries of $(-1,1)$, $[-1,1)$ , $[-1,1]$ on $\R$, the set of rationals on $\R$, and the disks $\{z \mid \abs{z} \l 1\}$ and $\{z \mid \abs{z} \leq 1\} \subset \mathbb{C}$.
+    A boundary point of $A \subset (X,d)$ is a point of $X$ (which may or may not be in $A$) such that every neighborhood of $x$ contains points of $A$ as well as points not belonging to $A$. The boundary of $A$ is defined to be the set of all boundary points of $A$. Find the boundaries of $(-1,1)$, $[-1,1)$ , $[-1,1]$ on $\R$, the set of rationals on $\R$, and the disks $\{z \mid \abs{z} \l 1\}$ and $\{z \mid \abs{z} \leq 1\} \subset \C$.
 \label{section1.3-11}
 \end{question}
 \begin{proof}
@@ -140,7 +140,7 @@
 
     The boundary points for the set of rationals on $\R$ is $\R$. This is because for any $q \in \R$, the neighborhood of $q$ will contain rationals as well as irrationals. 
 
-    Finally, the boundary points for the disks $\{z \mid \abs{z} \l 1\}$ and $\{z \mid \abs{z} \leq 1\} \subset \mathbb{C}$ is simply the set $\{z \mid \abs{z} = 1\}$.
+    Finally, the boundary points for the disks $\{z \mid \abs{z} \l 1\}$ and $\{z \mid \abs{z} \leq 1\} \subset \C$ is simply the set $\{z \mid \abs{z} = 1\}$.
 \end{proof}
 
 \begin{question}
