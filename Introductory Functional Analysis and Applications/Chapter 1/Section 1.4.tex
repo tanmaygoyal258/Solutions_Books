@@ -1,0 +1,118 @@
+\subsection{Convergence, Cauchy Sequences, Completeness}
+
+\begin{question}
+    If a sequence $(x_n)$ in a metric space $X$ is convergent and has limit $x$ show that every subsequence $(x_{n_k})$ of $(x_n)$ is also convergent and has the same limit $x$.
+    \label{section1.4-1}
+\end{question}
+\begin{proof}
+    Since $(x_n)$ is convergent, we have that for every $\epsilon \g 0$, there exists $N(\epsilon)$ such that for all $n \geq N(\epsilon)$, we have that $d(x,x_n) \l \epsilon$. This also means that for all $n_k \geq N(\epsilon)$, $d(x_{n_k} , x) \leq \epsilon$. Hence, the subsequence $(x_{n_k})$ also follows the definition of convergence.
+\end{proof}
+
+\begin{question}
+    If $(x_n)$ is Cauchy and has a convergent subsequence, say $x_{n_k}\rightarrow x$, show that $(x_n)$ is convergent with the limit $x$.
+    \label{section1.4-2}
+\end{question}
+\begin{proof}
+    Since $(x_n)$ is Cauchy, we have that for every $\epsilon \g 0$, there exists $N_1(\epsilon)$ such that for all $m , n \geq N_1(\epsilon)$, we have $d(x_m , x_n) \leq \epsilon.$ Now, since the subsequence $(x_{n_k})$ is converging to $x$, we have that for every $\epsilon \g 0$, there exists $N_2(\epsilon)$ such that for all $n_k \geq N_2(\epsilon)$, $d(x_{n_k} , x) \leq \epsilon $. Thus, fixing the value of $\epsilon$, and choosing the value of $N(\epsilon) = \max\{N_1(\epsilon) , N_2(\epsilon)\}$, we have that for some $n, n_k \geq N(\epsilon)$
+    \[d(x_n , x) \leq d(x_n , x_{n_k}) + d(x_{n_k} , x) \leq 2\epsilon. \]
+    This finishes the proof.
+\end{proof}
+
+\begin{question}
+    Show that $x_n \rightarrow x$ if and only if for every neighborhood $V$ of $x$ there is an integer $n_0$ such that $x_n \in V$ for all $n \g n_0$.
+    \label{section1.4-3}
+\end{question}
+\begin{proof}
+    Suppose $x_n \rightarrow x$. Then, for every $\epsilon \g 0$, there exists some $N(\epsilon)$ such that for all $n \geq N(\epsilon)$, $d(x_n , x) \leq \epsilon$. This means that for every $\epsilon \g 0$, there exists $N(\epsilon)$ such that for $n \geq N(\epsilon)$, $x_n \in B(x , \epsilon)$. Thus, for every neighborhood $V$, there exists $\epsilon \g 0$ such that $B(x , \epsilon) \subset V$, and hence, for $n \geq N(\epsilon) = n_0$, $x_n \in V$. 
+
+    We now show the converse. Suppose, for every neighborhood $V$, there is an integer $n_0$ such that $x_n \in V$ for $n \g n_0$. Assume that $B(x , \epsilon) \subset V$. Thus, setting $n_0 = N(\epsilon)$, for all $n \g N(\epsilon)$, $x_n \in B(x , \epsilon)$, and hence, the definition of convergence is fulfilled.
+\end{proof}
+
+\begin{question}
+    Show that a Cauchy sequence is bounded.
+    \label{section1.4-4}
+\end{question}
+\begin{proof}
+    A Cauchy sequence $(x_n)$ is defined as follows: for every $\epsilon \g 0$, there exists $N(\epsilon)$ such that for all $m,n \geq N(\epsilon)$, we have that $d(x_m , x_n) \leq \epsilon.$ Fix an $\epsilon$ and $x_N = x_{N(\epsilon)}$ as our reference point. Now we know that for $n \geq N$, $d(x_n  , x_N) \leq \epsilon$. Thus, choose 
+    \[r = \max_{i \in [N]} d(x_i,x_N)\]
+    and $r_0 = \max\{r , \epsilon\}$. Then, for all $n \g 0$, we have $d(x_n , x_N) \leq r_0$ which shows that the entire sequence is bounded in a ball of radius $r_0$ centered at $x_N$.
+ \end{proof}
+
+ \begin{question}
+     Is boundedness of a sequence in a metric space sufficient for the sequence to be Cauchy or convergent?
+     \label{section1.4-5}
+ \end{question}
+ \begin{proof}
+     No, the boundedness property is not sufficient. An example is $x_n = \sin \frac{n\pi}{2}$, which is always bounded by $1$ but is neither Cauchy nor convergent.
+ \end{proof}
+
+ \begin{question}
+     If $(x_n)$ and $(y_n)$ are Cauchy sequences in a metric space $(X,d)$, show that $(a_n)$, where $a_n  =d(x_n,y_n)$ is convergent.
+     \label{section1.4-6}
+ \end{question}
+ \begin{proof}
+     \textbf{Note: this question seems incorrect, and should only be true for complete spaces.}
+     
+     Since $(x_n)$ is Cauchy, for every $\epsilon \g 0$, there exists $N_x(\epsilon)$ such that for every $m,n \g N_x(\epsilon)$, we have that $d(x_m,x_n) \l \epsilon$. Similarly,  since $(y_n)$ is Cauchy, for every $\epsilon \g 0$, there exists $N_y(\epsilon)$ such that for every $m,n \g N_y(\epsilon)$, we have that $d(y_m,y_n) \l \epsilon$. Now, fix $\epsilon$ and let $N(\epsilon) = \max\{N_x(\epsilon) , N_y(\epsilon)\}$. Then for every $m , n \g N(\epsilon)$, we have
+     \[d(x_n,y_n) \leq  d(x_n,x_m) + d(y_n,y_m) + d(x_m,y_m) \l 2\epsilon + d(x_m,y_m)\]
+     and hence, 
+     \[d(x_n,y_n) - d(x_m,y_m) \leq 2\epsilon\]
+     Similarly, by symmetry
+    \[d(x_m,y_m) - d(x_n,y_n) \leq 2\epsilon\]
+    and hence,
+    \[\abs{d(x_n,y_n) - d(x_m,y_m)} \leq 2\epsilon.\]
+    Thus, the sequence $(a_n)$ is Cauchy, and since the space should be complete, the sequence is also convergent.
+ \end{proof}
+
+ \begin{question}
+     Give an indirect proof of Lemma 1.4-2(b).
+     \label{section1.4-7}
+ \end{question}
+ \begin{proof}
+    What an indirect proof is seems unclear. We wish to prove that if a sequence $(x_n) \rightarrow x$ and $(y_n) \rightarrow y$, then $d(x_n,y_n) \rightarrow d(x,y)$. By the properties of convergence, we have
+    \[\lim\limits_{n \rightarrow \infty} d(x_n,x) = 0 \text{ and } \lim\limits_{n \rightarrow \infty} d(y_n,y) = 0.\]
+    Thus, using the triangle inequality and non-negativity of the metric, we have
+    \[0 \leq d(x_n,y_n) \leq d(x_n,x) + d(y_n,y) + d(x,y).\]
+    As $n$ grows, we have $0 \leq \lim\limits_{n \rightarrow \infty} d(x_n,y_n) \leq d(x,y)$. Similarly, we can also obtain $0 \leq d(x,y) \leq \lim\limits_{n \rightarrow \infty} d(x_n,y_n)$, which gives us the result that
+    \[\lim\limits_{n \rightarrow \infty} d(x_n,y_n) = d(x,y).\]
+ \end{proof}
+
+ \begin{question}
+     If $d_1$ and $d_2$ are metrics on the same set $X$ and there are positive numbers $a$ and $b$ such that for all $x , y \in X$
+     \[ad_1(x,y) \leq d_2(x,y) \leq bd_1(x,y),\]
+     show that the Cauchy sequences in $(X,d_1)$ and $(X,d_2)$ are the same.
+     \label{section1.4-8}
+ \end{question}
+ \begin{proof}
+     Let $(x_n)$ be a Cauchy sequence on $(X,d_1)$. Then, for every $\epsilon \g 0$, we have some $N(\epsilon)$ such that for all $n,m \g N(\epsilon)$, $d_1(x_m,x_n) \l \epsilon.$ Using the relation between $d_1$ and $d_2$, we have that for every $m,n \g N(\frac{1}{b} (b\epsilon))$, $d_2(x_m , x_n) \l b\epsilon$ and hence, every sequence $(x_n)$ that is Cauchy in $(X,d_1)$ is also Cauchy in $(X,d_2)$. Similarly, if a sequence $(y_n)$ is Cauchy in $(X,d_2)$, for some $\epsilon \g 0$, we have some $N(\epsilon)$ such that for all $m,n \g N(\epsilon)$, $d_2(y_m,y_n) \l \epsilon.$ Using the relation once again, we have that for $m,n \g N(a(\frac{\epsilon}{a}))$, $d_1(y_m , y_n) \l \frac{\epsilon}{a}$ and hence, $(y_n)$ is Cauchy in $(X,d_1)$. This finishes the proof.
+ \end{proof}
+
+ \begin{question}
+     Using \ref{section1.4-8}, show that the metric spaces in \ref{section1.2-13}, \ref{section1.2-14}, \ref{section1.2-15} from section 1.2 have the same Cauchy sequences.
+     \label{section1.4-9}
+ \end{question}
+ \begin{proof}
+     Define 
+     \[d(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)\]
+     \[\tilde{d}(x,y) = \sqrt{d_1(x_1,y_1)^2 + d_2(x_2 , y_2)^2}\]
+     \[\tilde{\tilde{d}}(x,y) = \max\{d_1(x_1,y_1) , d_2(x_2,y_2)\}\]
+     on the metric space $X = X_1 \times X_2$.
+     It is easy to see the following:
+     \begin{enumerate}
+         \item $\tilde{d} \leq \sqrt{2} \tilde{\tilde{d}}$.
+         \item $d \leq 2 \tilde{\tilde{d}}$.
+         \item $d \leq \tilde{d}$.
+         \item $\tilde{\tilde{d}} \leq d$.
+     \end{enumerate}
+     Combining these gives us
+     \[\tilde{\tilde{d}} \leq d \leq \tilde{d} \leq 2\tilde{\tilde{d}}.\]
+     This finishes the proof.
+ \end{proof}
+
+ \begin{question}
+     Using the completeness of $\R$ ,prove the completeness of $\mathbb{C}.$
+     \label{section1.4-10}
+ \end{question}
+ \begin{proof}
+     Since $\R$ is complete, every Cauchy sequence converges to some point in $\R$. Now, every complex number has a real part and an imaginary part. Let $(c_n)$ be some cauchy sequence of complex numbers such that $c_n = a_n + \iota b_n$. Clearly, the sequence $(a_n)$ is Cauchy and convergent since $\R$ is complete. Also, multiplying every element of a sequence does not change the convergence properties and hence, $(\iota b_n)$ is also cauchy and convergent. Thus, $(a_n + \iota b_n) = (c_n)$ is also cauchy and convergent.
+ \end{proof}
