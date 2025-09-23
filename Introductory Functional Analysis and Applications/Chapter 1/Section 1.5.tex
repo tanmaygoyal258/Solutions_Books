@@ -1,0 +1,206 @@
+\subsection{Examples: Completeness Proofs}
+
+\begin{question}
+    Let $a,b \in \R$ and $a < b$. Show that the open interval $(a,b)$ is an incomplete subspace of $\R$ while the closed interval is $[a,b]$ is complete.
+    \label{section1.5-1}
+\end{question}
+\begin{proof}
+    First, due to Theorem 1.4-7, we have that a closed subspace is complete and hence, $[a,b]$ is complete. We shall prove this theorem again which states that \emph{A subspace $M$ of a metric space $X$ is complete if and only if the set $M$ is closed.} First, let $M$ be complete, this means that for any Cauchy sequence $(x_n) \in M$, $x_n \rightarrow x \in M$. This means that all the limit points (accumulation points) of $M$ belong to $M$ and hence, $\overline{M} = M$. Thus, $M$ is closed. Now, we show the converse. Let $M$ be closed. This means that all the limit points (accumulation points) of $M$ belong to $M$, since $\overline{M} = M$, and hence, any Cauchy sequence $(x_n) \in M$ will converge to some $x \in M$, and hence, the space is complete.
+
+    Further, we can construct a counterexample to show that $(a,b)$ is incomplete. Consider the sequence $x_n = a + \frac{1}{n}$. Clearly, as $n \rightarrow \infty$, $x_n \rightarrow a$, however, $x \notin (a,b)$. Thus, the set $(a,b)$ is incomplete. We can also see that $a$ is an accumulation point of $(a,b)$ and hence, the closure of $(a,b)$ is $[a,b]$. Since the closure is not equal to the set, it is incomplete.
+\end{proof}
+
+\begin{question}
+    Let $X$ be the space of all ordered $n-$tuples $x = (\xi_1 , \ldots , \xi_n)$ of real numbers and 
+    \[d(x,y) = \max_i \abs{\xi_i - \eta_i}\]
+    where $y = (\eta_j)$. Show that $(X,d)$ is complete.
+    \label{section1.5-2}
+\end{question}
+\begin{proof}
+    First, assume that $(x_n) = (\xi_j^{(n)})$ is a Cauchy sequence. This means that for every $\epsilon \g 0$ there exists $N(\epsilon)$ such that for all $m,n \g N(\epsilon)$, we have
+    \[d(x_n , x_m) \l \epsilon.\]
+    This means that 
+    \[\max_{i} \abs{\xi_i^{(n)} - \xi_i^{(m)}} \l \epsilon \implies \forall i \in [n] \; \abs{\xi_i^{(n)} - \xi_i^{(m)}} \l \epsilon\]
+
+    By the completeness of real numbers, we have that the sequences $(\xi_i^{(1)} , \xi_i^{(2)} , \ldots)$ is Cauchy, and hence, converges to some value, say $\xi_i$. Hence, define $x = (\xi_i)$. Clearly, $x \in X$. We now wish to show that the sequence $(x_n)$ converges. Recall that for $\epsilon \g 0$ and $m,n \g N(\epsilon)$, we have that $d(x_m , x_n) \l \epsilon$. As $m \rightarrow \infty$, we have
+    \[d(x_n , x) \l \epsilon\]
+    and hence, $x$ is a limit point for $x_n$. Thus, the space is complete.
+\end{proof}
+
+\begin{question}
+    Let $M \subset \ell^\infty$ be the subspace of all sequences $x = (\xi_j)$ with at most finitely many nonzero terms. Find a Cauchy sequence in $M$ that does not converge in $M$ so that $M$ is not complete.
+    \label{section1.5-3}
+\end{question}
+\begin{proof}
+    The easiest way to show that the space is not complete is to find a Cauchy sequence that converges to an all-zero sequence. Consider the sequence 
+    \[x_n  = \left(1 , \frac{1}{2} , \ldots , \frac{1}{n} , 0 , \ldots , 0 \right)\]
+    Then, choose $\epsilon \g 0$ and $N = \frac{1}{\epsilon}$ and for some $n \g m \g N$,
+    \[d(x_n , x_m) = \sup\left\{\frac{1}{m+1} , \ldots , \frac{1}{n}\right\} = \frac{1}{m+1} \leq \frac{1}{m} \leq \frac{1}{N} =  \epsilon.\]
+    Thus, it is a Cauchy sequence. However, note that the sequence will converge to $x = \left(1 , \frac{1}{2} , \ldots , \frac{1}{n} , \ldots \right) \notin M$.
+\end{proof}
+
+\begin{question}
+    Show that the subspace $M$ in the previous question \ref{section1.5-3} is not complete using Theorem1.4-7.
+    \label{section1.5-4}
+\end{question}
+\begin{proof}
+    Theorem 1.4-7 says that a subspace is complete if and only if the subspace is closed. We wish to show that the subspace is not closed, i.e $M \neq \overline{M}$, or in other words, there exists some $x$ which is an accumulation point and $x \notin M$. This is exactly what we showed in the previous question.
+\end{proof}
+
+\begin{question}
+    Show that the set X of all integers with metric $d(x,y) = \abs{x-y}$ is a complete metric space. 
+    \label{section1.5-5}
+\end{question}
+\begin{proof}
+    Recall that the set of integers is closed in $\R$ (Section 1.3 \ref{section1.3-7}) and hence, it is a complete metric space. We shall also attempt to show it using Cauchy sequences. Consider some sequence $(x_n)$. Then for every $\epsilon \g 0$, there exists $N(\epsilon)$ such that for every $n,m \g N(\epsilon)$
+    \[d(x_m , x_n) \l \epsilon.\]
+    However, if we choose $\epsilon < 1$, then at some point, all these points would become equal, i.e
+    \[d(x_m , x_n) \l 1 \implies x_m = x_n\]
+    and hence, the sequence converges to some integer $x$, which shows that the space is complete.
+\end{proof}
+
+\begin{question}
+    Show that the set of all real numbers is incomplete if we choose 
+    \[d(x,y) = \abs{\arctan x - \arctan y}\]
+    \label{section1.5-6}
+\end{question}
+\begin{proof}
+    Consider the sequence $x_n = \tan \left(\frac{\pi}{2} - \frac{1}{n} \right)$. Clearly,
+    \[\lim_{n \rightarrow \infty} x_n = \infty\]
+    and hence, the sequence is diverging. However, for $m \g n$, 
+    \[d(x_n , x_m) = \abs{\frac{1}{m} - \frac{1}{n}} = \frac{1}{n} - \frac{1}{m}.\]
+    Clearly, for some $\epsilon \g 0$, $N(\epsilon) = \frac{1}{\epsilon}$, and $m \g n \g N(
+    \epsilon)$, we have that $d(x_n,x_m) \l \epsilon$ and hence, the sequence is Cauchy. Thus, the space is not complete.
+\end{proof}
+
+\begin{question}
+    Let $X$ be the set of all positive integers and $d(m,n) = \abs{m^{-1} - n^{-1}}$. Show that this is not complete.
+    \label{section1.5-7}
+\end{question}
+\begin{proof}
+    Consider the sequence $(x_n) = n$, then for some $\epsilon \g 0$ and $N(\epsilon) = \frac{1}{\epsilon}$, choosing $n \g m \g N$, we have
+    \[d(x_m,x_n) = \frac{1}{m} - \frac{1}{n} \l \frac{1}{N} = \epsilon\]
+    and hence, the sequence is Cauchy. However, clearly, it is not convergent.
+\end{proof}
+
+\begin{question}
+    Show that the subspace $Y \subset C[a,b]$ consisting of all $x \in C[a,b]$ such that $x(a) = x(b)$ is complete. 
+    \label{section1.5-8}
+\end{question}
+\begin{proof}
+    Suppose there is some Cauchy sequence $x_n$ such that for some $\epsilon \g 0$, there exists $N(\epsilon)$ such that  for all $m , n \g N(\epsilon)$, we have $d(x_n , x_m) \l \epsilon$, where $d(x,y)$ is defined as
+    \[d(x,y) = \max_{t \in [a,b]} \abs{x(t) - y(t)}.\]
+    Suppose $x_n \rightarrow x$. To show that $Y$ is complete, we wish to show $x \in Y$. 
+    Since $x_n \rightarrow x$, we have that for some $\epsilon \g 0$ and $n \g N(\epsilon)$,
+    \[d(x_n , x) \l \epsilon \implies \max_{t \in [a,b]} \abs{x_n(t) - x(t)} \l \epsilon \implies  \abs{x_n(t) - x(t)} \l \epsilon \; \forall t \in [a,b].\]
+    Thus,
+    \[d(x(a) , x(b)) \l d(x(a) , x_n(a)) + d(x_n(a) , x_n(b)) + d(x_n(b) , x(b)) \l 2\epsilon\]
+    since $x_n(a) = x_n(b)$. Thus, we have
+    \[0 \leq d(x(a) , x(b)) \l 2\epsilon\]
+    for all $\epsilon \g 0$. As $\epsilon$ becomes arbitrarily small, we have $d(x(a) , x(b)) = 0 \implies x(a) = x(b)$ and hence, $x \in Y$.
+\end{proof}
+
+\begin{question}
+    Prove that if a sequence $(x_m)$  of continuous functions on $[a,b]$ converges on $[a,b]$ and the convergence is uniform, then the limit function $x$ is also continuous on $[a,b]$.
+    \label{section1.5-9}
+\end{question}
+\begin{proof}
+    First, since $x_m$ is continuous, we have for a fixed $t_0 \in [a,b]$ and for some $\epsilon \g 0$, there exists some $\delta \g 0$ such that
+    \[d(t,t_0) \leq \delta \implies d(x_m(t) , x_m(t_0)) \leq \epsilon \; \forall m.\]
+    Also, since the sequence $(x_m)$ converges pointwise to $x$, we have for some $\epsilon \g 0$, there exists $N(\epsilon)$ such that for $n \g N(\epsilon)$, 
+    \[d(x_n(t),x(t)) \leq \epsilon \; \forall t \in [a,b].\]
+    Thus, for a fixed $t_0 \in [a,b]$ and $\epsilon \g 0$, corresponding $\delta \g 0$, and $n \g N(\epsilon)$, we have that if $d(t,t_0) \l \delta$
+    \[d(x(t) , x(t_0)) \leq d(x(t) ,x_n(t)) + d(x_n(t) , x_n(t_0)) + d(x(t_0) , x_n(t_0)) \leq 3\epsilon.\]
+    This shows that $x$ is continuous at $t_0$. Since $t_0$ was an arbitrary point, it shows that $x$ is continuous.
+\end{proof}
+
+\begin{question}
+    Show that the discrete metric space is complete.
+    \label{section1.5-10}
+\end{question}
+\begin{proof}
+    Recall the discrete metric space is defined as $d(x,x) = 0$ and $d(x,y) = 1$ if $x \neq y$. Recall that this space has no accumulation points, and hence, the space is closed. Thus, the only Cauchy sequences are constant sequences, and these definitely converge. This also makes sense since setting $\epsilon < 1$ ensures a constant sequence, while $\epsilon \geq 1$ brings the whole space into play, and thus, no sequence will ever converge. Thus, convergence only occurs with $\epsilon < 1$, which results in a constant sequence. Also, the only Cauchy sequences are constant. Thus, the space is complete.
+\end{proof}
+
+
+\begin{question}
+    Show that in the space $s$, we have $x_n \rightarrow x$ if and only if $\xi_j^{(n)} \rightarrow \xi_j$ for all $j$.
+    \label{section1.5-11}
+\end{question}
+\begin{proof}
+    Let $x_n = \xi_j^{(n)}$ and the metric is defined as
+    \[d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{\abs{\xi_j - \eta_j}}{1 + \abs{\xi_j - \eta_j}}\]
+
+    Suppose $x_n \rightarrow x$. This means
+    \[\lim_{n \rightarrow \infty} d(x,x_n) = 0 \implies \lim_{n \rightarrow \infty} \sum_{j = 1}^\infty \frac{1}{2^j} \frac{\abs{\xi^{(n)}_j - \xi_j}}{1 + \abs{\xi^{(n)}_j - \xi_j}} = 0\]
+    However, since the sum comprises of non-negative terms, the sum is zero only if each term is zero, or
+    \[\lim_{n \rightarrow \infty} \abs{\xi^{(n)}_j - \xi_j} = 0 \implies \lim_{n \rightarrow \infty} d(\xi^{(n)}_j , \xi_j) = 0 \implies \xi^{(n)}_j \rightarrow \xi_j\]
+
+    On the other hand, if $\xi^{(n)}_j \rightarrow \xi_j$, then
+    \[\lim_{n \rightarrow \infty}\abs{\xi^{(n)}_j - \xi_j} = 0.\]
+    Thus, 
+    \[\lim_{n \rightarrow \infty} d(x_n , x) = 0.\]
+    This finishes the proof.
+\end{proof}
+
+\begin{question}
+    Using \ref{section1.5-11} show that the sequence space $s$ is complete.
+    \label{section1.5-12}
+\end{question}
+\begin{proof}
+    Suppose $(x_n)$ is a Cauchy sequence where $x_n = (\xi^{(n)}_1 , \ldots)$. Then, for some $\epsilon \g 0$, there exists some $N(\epsilon)$ and some $m , n \g N(\epsilon)$ such that
+    \[d(x_m , x_n) \l \epsilon \implies \sum_{j = 1}^\infty \frac{1}{2^j} \frac{\abs{\xi^{(n)}_j - \xi^{(m)}_j}}{1 + \abs{\xi^{(n)}_j - \xi^{(m)}_j}} \l \epsilon \implies \abs{\xi^{(n)}_j - \xi^{(m)}_j} \l \frac{\epsilon}{2}\]
+    or, in other words, $(\xi^{(1)}_j , \xi^{(2)}_j , \ldots)$ is Cauchy, and hence, converges. Since the space of complex numbers is complete, we also have $\xi^{(k)_j} \rightarrow \xi_j$(say), and hence, from \ref{section1.5-11}, we can say $x_n \rightarrow x$. This shows that $x$ is complete.
+    
+\end{proof}
+
+\begin{question}
+    Show that another Cauchy sequence is given by
+    \[x_n(t) = n \text{ if } 0 \leq t\leq \frac{1}{n^2} \text{ and } x_n(t) = t^{-\frac{1}{2}} \text{ if } \frac{1}{n^2} \leq t \leq 1\]
+    under the metric
+    \[d(x,y) = \int_0^1 \abs{x(t) - y(t)} \; dt.\]
+    \label{section1.5-13}
+\end{question}
+\begin{proof}
+    Clearly, for some $m \g n$,
+    \begin{align*}
+        d(x_m , x_n) &= \int_{0}^{\frac{1}{m^2}} \abs{m-n} \; dt + \int_{\frac{1}{m^2}}^{\frac{1}{n^2}} \abs{t^{-\frac{1}{2}} - n} \; dt 
+        \\
+        &= \frac{m-n}{m^2} + \int_{\frac{1}{m^2}}^{\frac{1}{n^2}} t^{-\frac{1}{2}} - n \; dt 
+        \\
+        &= \frac{m-n}{m^2} + 2\left( \frac{1}{n} - \frac{1}{m}\right) -n\left(\frac{1}{n^2} - \frac{1}{m^2} \right)
+        \\
+        &= \frac{1}{n} - \frac{1}{m}
+        \\
+        &\leq \epsilon
+    \end{align*}
+    for some $\epsilon \g 0$ and choosing $N(\epsilon) = \frac{1}{\epsilon}$ and $m \g n \g N(\epsilon)$. Thus, the sequence is Cauchy.
+\end{proof}
+
+\begin{question}
+    Show that the Cauchy sequence in \ref{section1.5-13} does not converge.
+    \label{section1.5-14}
+\end{question}
+\begin{proof}
+    Note, from \ref{section1.5-13}, we have for some $m \g n$,
+    \[d(x_m , x_n) = \int_{0}^{\frac{1}{m^2}} \abs{m-n} \; dt + \int_{\frac{1}{m^2}}^{\frac{1}{n^2}} \abs{t^{-\frac{1}{2}} - n} \; dt \]
+    and hence, 
+    \[\lim_{m \rightarrow \infty} d(x_m , x_n)  =d(x,x_n) = \int_{0}^{\frac{1}{n^2}} \abs{t^{-\frac{1}{2}} - n} \; dt\]
+    Clearly, $x$ would be unbounded at $t = 0$ while the function would then be defined as 
+    \[x(t) = t^{-\frac{1}{2}} \; \forall t \in (0,1]\]
+    Hence, there is no convergence at $t = 0$.
+\end{proof}
+
+\begin{question}
+    Let $X$ be the metric space of all real sequences that has only finitely many nonzero terms, and $d(x,y) = \sum \abs{\xi_j - \eta_j}$, where $y = (\eta_j)$. Show that with $x_n = (\eta^{(n)}_j)$,
+    \[\eta^{(n)}_j = j^{-2} \text{ for } n \in [j] \text{ and } \eta^{(n)}_j = 0 \text{ for } j \g n\]
+    is Cauchy but does not converge.
+    \label{section1.5-15}
+\end{question}
+\begin{proof}
+    Let $\epsilon \g 0$ be fixed. Then, there exists $N(\epsilon)$ such that for $m \g n \g N(\epsilon)$, we have
+    \[d(x_m , x_n) = \sum_{j = n}^m \frac{1}{j^2} \leq \frac{m-n}{n^2} \l \epsilon.\]
+    However, say we fix some $N$, then for $n \g N$, we have
+    \[d(x_n , x) = \abs{1 - \xi_1} + \abs{\frac{1}{4} - \xi_2} + \ldots \frac{1}{(N+1)^2} + \ldots \frac{1}{n^2} \geq \frac{1}{(N+1)^2}\]
+    which will never be arbitrarily small since $N$ is fixed. This equation uses the fact that if $ x \in X$, then, after some $N$, all it's terms would be zero.
+\end{proof}
