@@ -86,7 +86,9 @@
     \label{section1.6-8}
 \end{question}
 \begin{proof}
-    \textcolor{red}{TODO}
+    Since $(X,  \tilde{d})$ is complete, we have that all accumulation points of $X$ belong to $X$ itself. Let $x \in X$ be an accumulation point. Then, for every $\epsilon \g 0$, there exists $x_\epsilon$ such that
+    \[\tilde{d}(x , x_\epsilon) \l \epsilon \implies \frac{d(x,  x_\epsilon)}{1 + d(x , x_\epsilon )} \l \epsilon \implies d(x , x_\epsilon) \l \frac{\epsilon}{1 - \epsilon}\]
+    Thus, if $\epsilon \l 1$, $x_\epsilon$ is also an accumulation point for $X$ under the metric $d$. On the other hand, if $\epsilon \g 1$, then this is trivially true.
 \end{proof}
 
 \begin{question}
