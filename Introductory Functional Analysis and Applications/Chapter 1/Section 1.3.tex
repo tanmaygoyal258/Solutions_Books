@@ -149,8 +149,15 @@
     \label{section1.3-12}
 \end{question}
 \begin{proof}
-    \textcolor{red}{TODO}
-\end{proof}
+    We shall use the same methodology as the one used to show $\ell^p$ is not separable. We will first construct an uncountable set of functions $x_n$ such that $d(x_n , x_m) \g \epsilon.$ Now, if we take balls of radius $\frac{\epsilon}{3}$ around each $x_i$, we will have uncountable balls that do not overlap. Suppose $M$ is a dense subset, then by the definition of dense, each of the balls around $x_i$ should have an element of $M$. This means that $M$ has to intersect with every ball and since the number of balls are uncountable and disjoint, $M$ is uncountable. Since any arbitrary dense set is uncountable, the space is not separable.
+
+    Now, to construct this uncountable set of functions, note that $[a,b]$ is an uncountable set, and hence, having functions labeled with $c \in [a,b]$ would result in uncountable functions. Define 
+    \[x_c(d) = \mathbbm{1}\{c=d\} \; \forall d \in [a,b].\]
+    This function is bounded, and moreover there are uncountable number of functions. Further, 
+    \[d(x_m , x_n) = \sup_{t \in [a,b]} \abs{x_m(t) - 
+    x_n(t)} = 1\]
+    and hence, substituting $\epsilon = 1$ will finish the proof.
+\end{proof} 
 
 \begin{question}
     Show that a metric space $X$ is separable if and only if $X$ has a countable subset $Y$ with the following property: For every $\epsilon \g 0$ and every $x \in X$, there is a $y \in Y$ such that $d(x,y) \l \epsilon$.
@@ -173,7 +180,7 @@
     \[d(x_0,x) \leq \delta \implies d(Tx_0 , Tx) \leq \epsilon.\]
     Thus, consider the point $Tx_0 \in Y$ and the set $B(Tx_0 , \epsilon)$ which is open. Clearly, due to the definition of $T$, $B(Tx_0,\epsilon)$ maps back to $B(x_0 , \delta)$ which is again open, and hence, if $T$ is continuous, then the inverse image of an open set is an open set.
 
-    Now, we show the converse. Suppose we take the set $B(Tx_0 , \epsilon) \subset Y$ which is open. Then, we have that the inverse image of $B(Tx_0 , \epsilon)$ is also open, say some set $N \in X$ such that $x_0 \in N$. Also, since $N$ is a neighborhood, $B(x_0 , \delta) \subset N$, and hence, the definition of continuity is fulfilled.
+    Now, we show the converse. Suppose we take the set $B(Tx_0 , \epsilon) \subset Y$, which is open. Then, we have that the inverse image of $B(Tx_0 , \epsilon)$ is also open, say some set $N \in X$ such that $x_0 \in N$. Also, since $N$ is an open set,$B(x_0 , \delta) \subset N$, and hence, the definition of continuity is fulfilled.
 
     Now, we shall show the statement. Suppose $T$ is continuous and $M \subset Y$ is closed. This means that $M^C$ is open and hence, the inverse image of $M$, say $A \subset X$ is open. Thus, $A^C$ is closed. Similarly, let $M \subset Y$ is closed and it's inverse image $A \subset X$ is also closed. This means that $M^C$ and $A^C$ is open and hence, $T$ is continuous.
 \end{proof}
