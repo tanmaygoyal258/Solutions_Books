@@ -1,0 +1,138 @@
+\subsection{Further Properties of Inner Product spaces}
+
+\begin{question}
+    What is the Schwarz inequality in $\R^2$ or $\R^3$? Give another proof of it in these cases.
+    \label{section3.2-1}
+\end{question}
+\begin{proof}
+    Recall the Schwarz inequality is given by
+    \[\abs{\inner{x}{y}} \leq \norm{x} \norm{y}.\]
+    Consider $\R^2$. Then, the Schwarz inequality is given by
+    \[\sum_{i=1}^2 \abs{x_i y_i} \leq \sqrt{\sum_{i=1}^2 \abs{x_i}^2 } \sqrt{\sum_{i=1}^2 \abs{y_i}^2}\]
+    which is precisely Hölder's inequality with $p = q  = 1/2$. The same can be said for $\R^3.$
+\end{proof}
+
+\begin{question}
+    Give examples of subspaces of $\ell^2$.
+    \label{section3.2-2}
+\end{question}
+\begin{proof}
+    $\ell^2$ consists of sequences such that their $\ell_2-$norm is bounded. One subspace could simply be the space of all sequences that converge to $0$. This holds since the sum of two sequences converging to zero would also converge to zero , and multiplying by a scalar would not change convergence properties.
+\end{proof}
+
+\begin{question}
+    Let $X$ be the inner product space consisting of the polynomial $x = 0$ and all real polynomials in $t$ of degree not exceeding $2$, considered for real $t \in [a,b]$ with inner product defined by Section 3.1, (7). Show that $X$ is complete. Let $Y$ consist of all $x \in X$ such that $x(a) = 0$. Is $Y$ a subspace of $X$. Do all $x \in X$ of degree 2 form a subspace of $X$?
+    \label{section3.2-3}
+\end{question}
+\begin{proof}
+    $X$ is the inner product space consisting of the polynomial $x = 0$ and all real polynomials in $t$ of degree not exceeding $2$, considered for real $t \in [a,b]$ with inner product defined by 
+    \[\inner{x}{y} = \int_a^{b} x(t) y(t) \; dt.\]
+    Now, $X$ is finite dimensional, since the basis is $\{1 , x , x^2\}$. Hence, it is closed, and hence, it is also complete. 
+
+    Now. consider $y_1 , y_2 \in Y$ such that $y_1(a) = y_2(a) = 0$. Consider the polynomial $\alpha y_1 + \beta y_2$. It is easy to see that $(\alpha y_1 + \beta y_2)(a) = 0$ and hence, it forms a subspace.
+
+    However, all polynomials of degree $2$ do not form a subspace. Consider the polynomials $x = t^2$ and $x = -t^2$. Their addition is not a polynomial of degree 2.
+\end{proof}
+
+\begin{question}
+    Show that $y \perp x_n$ and $x_n \rightarrow x$ together implies $x \perp y$.
+    \label{section3.2-4}
+\end{question}
+\begin{proof}
+    Since $y \perp x_n,$ we have that $\inner{x_n}{y} = 0$. Now, since $x_n \rightarrow x$, we have that using the continuity of inner products
+    \begin{align*}
+        \lim_{n \rightarrow \infty} x_n = x \implies \inner{x}{y} = \inner{ \lim_{n \rightarrow \infty} x_n}{y} =  \lim_{n \rightarrow \infty} \inner{x_n}{y} = 0
+    \end{align*}
+    and hence, $x \perp y$.
+\end{proof}
+
+\begin{question}
+    Show that for a sequence $(x_n)$ in an inner product space the conditions $\norm{x_n} \rightarrow \norm{x}$ and $\inner{x_n}{x} \rightarrow \inner{x}{x}$ imply convergence $x_n \rightarrow x$.
+    \label{section3.2-5}
+\end{question}
+\begin{proof}
+    We wish to show that $\inner{x_n - x}{x_n - x} \rightarrow 0$. Expanding this inner product, we get
+    \[\inner{x_n - x}{x_n - x} = \inner{x_n}{x_n} - \inner{x}{x_n} - \inner{x_n}{x} + \inner{x}{x} \rightarrow \inner{x}{x} - \inner{x}{x} + \inner{x}{x} + \inner{x}{x} = 0\]
+    since $\inner{x_n}{x} \rightarrow \inner{x}{x} \in \R \implies \inner{x}{x_n} \rightarrow \inner{x}{x}$.
+\end{proof}
+
+\begin{question}
+    Prove \ref{section3.2-5} for complex plane.
+    \label{section3.2-6}
+\end{question}
+\begin{proof}
+    In the complex plane, let $\inner{x_n}{x} = c_n + \iota d_n$. Then, since $\inner{x_n}{x} \rightarrow \inner{x}{x}$, we have $d_n \rightarrow 0$. Hence, $\inner{x}{x_n} = c_n - \iota d_n \rightarrow \inner{x}{x}$, and hence, the same proof as \ref{section3.2-5} follows.
+\end{proof}
+
+\begin{question}
+    Show that in an inner product space, $x \perp y$ if and only if we have $\norm{x + \alpha y} = \norm{x - \alpha y}$ for all scalars $\alpha$.
+    \label{section3.2-7}
+\end{question}
+\begin{proof}
+    Suppose $x \perp y$. Then, we have that $\inner{x}{y} = 0 = \inner{y}{x}$. Thus, for any scalar $\alpha$,
+    \begin{align*}
+        0 &= 2\inner{x}{\alpha y} + 2\inner{\alpha y}{x}
+        \\
+        &= \inner{x}{x} + \inner{x}{\alpha y} + \inner{\alpha y}{x} + \inner{\alpha y}{\alpha y} - \inner{x}{x} + \inner{x}{\alpha y} + \inner{\alpha y}{x} - \inner{\alpha y}{\alpha y}
+        \\
+        &= \inner{x + \alpha y}{x + \alpha y} - \inner{x -\alpha y}{x - \alpha y}
+        \\
+        &= \norm{x + \alpha y}^2 - \norm{x - \alpha y}^2
+    \end{align*}
+
+    Now, conversely, let $\norm{x + \alpha y} = \norm{x - \alpha y}$. Squaring and expanding, we get
+    \[\inner{x}{\alpha y} + \inner{\alpha y}{x} = 0 \implies \Re \inner{\alpha y}{x} = 0\]
+    holds for $\alpha$. If the space is real, then we immediately get $\inner{x}{y} = 0 \implies x \perp y$. However, if the space is complex, let $\inner{y}{x} = c + \iota d$. Then, choosing $\alpha = \iota$ gives us $d = 0$, while choosing $\alpha = 1$ gives us $c = 0$, resulting in $\inner{x}{y} = 0 \implies x \perp y$.
+\end{proof}
+
+\begin{question}
+    Show that in an inner product space, $x \perp y$ if and only if $\norm{x + \alpha y} \geq \norm{x}$ for all scalars $\alpha$.
+    \label{section3.2-8}
+\end{question}
+\begin{proof}
+    Suppose $x \perp y$. Then, $\inner{x}{y} = 0 = \inner{y}{x}$. Then, we have for all scalars $\alpha$,
+    \begin{align*}
+        0 &= \inner{x}{\alpha y} + \inner{\alpha y}{x}
+        \\
+        &= \inner{x}{x} + \inner{x}{\alpha y} + \inner{\alpha y}{x} - \inner{x}{x}
+        \\
+        &\leq \inner{x}{x} + \inner{x}{\alpha y} + \inner{\alpha y}{x} - \inner{x}{x} + \inner{\alpha y}{\alpha y}
+        \\
+        &= \norm{x + \alpha y}^2 - \norm{x}^2
+    \end{align*}
+    which results in $\norm{x + \alpha y}^2 \geq \norm{x}^2$. The inequality follows since $\inner{\alpha y}{\alpha y} \geq 0.$
+
+    Now, conversely, assume $\norm{x + \alpha y} \geq \norm{x}$ for all scalars $\alpha$. Squaring, we get
+    \[\inner{x}{\alpha y} + \inner{\alpha y}{x} + \inner{\alpha y}{\alpha y} \geq 0 \implies \alpha \inner{y}{x} + \overline{\alpha}(\inner{x}{y} + \alpha \inner{y}{y}) \geq 0.\]
+    Since this holds for all $\alpha$, it also holds for $\alpha = -\frac{\inner{x}{y}}{\inner{y}{y}}$. Substituting, we get
+    \[-\frac{\inner{x}{y}^2}{\inner{y}{y}} \geq 0 \implies \inner{x}{y}^2 \leq 0 \implies \inner{x}{y} = 0.\]
+    Thus, $x \perp y$.
+\end{proof}
+
+\begin{question}
+    Let $V$ be the vector space of all continuous complex-valued functions on $J = [a,b]$. Let $X_1 = (V , \norm{.}_\infty)$, where $\norm{x}_\infty = \max_{t \in J}\abs{x(t)}$ and let $X_2 = (V , \norm{.}_2)$, where
+    \[\norm{x}_2 = \inner{x}{x}^{1/2} \;,\; \inner{x}{y} = \int_{a}^b x(t) \overline{y(t)} \; dt\]
+    Show that the identity mapping $x \mapsto x$ of $X_1$ onto $X_2$ is continuous.
+    \label{section3.2-9}
+\end{question}
+\begin{proof}
+    We wish to show that for all $\epsilon \g 0$, $\exists \delta \g0$, such that $\norm{x_0 - x}_\infty \l \delta \implies \norm{x_0 - x}_2 \l \epsilon$. First, if $\norm{x_0 - x}_\infty \l \delta$, we have that
+    \[\norm{x_0 - x}_\infty = \max_{t \in [a,b]} \abs{x_0(t) - x(t)} \l \delta \implies \abs{x_0(t) - x(t)} \l \delta \;\forall t \in[a,b].\]
+    Now, consider $\norm{x_0 - x}_2 = \inner{x_0 - x}{x_0 - x}^{1/2}$. We get
+    \[\inner{x_0 - x}{x_0 - x} = \int_{a}^{b} \abs{x_0(t) - x(t)}^2 \;dt \l (b-a) \delta^2.\]
+    Thus, $\norm{x - x_0}_2 \l \sqrt{b-a} \delta \l \epsilon$. Hence, substituting $\delta = \frac{\epsilon}{\sqrt{b-a}}$ shows that the map is continuous.
+\end{proof}
+
+\begin{question}
+    Let $T:X\mapsto X$ be a bounded linear operator on a complex inner product space $X$. If $\inner{Tx}{x} = 0$ for all $x \in X$, show that $T= 0$. Show that this does not hold in case of a real inner product space.
+    \label{section3.2-10}
+\end{question}
+\begin{proof}
+    First, since $T$ is a bounded linear operator, we have
+    \[0 = \inner{T(x+y)}{x+y} = \inner{Tx}{x} + \inner{Ty}{y} + \inner{Tx}{y} + \inner{Ty}{x} = \inner{Tx}{y} + \inner{Ty}{x}.\]
+    We also have
+    \[0 = \inner{T(x+\iota y)}{x + \iota y} = \inner{Tx}{x} + \inner{T \iota y}{\iota y} + \inner{Tx}{\iota y} + \inner{T \iota y}{x} = -\iota \inner{Tx}{y} + \iota \inner{Ty}{x} \implies \inner{Ty}{x} = \inner{Tx}{y}\]
+    Solving both equations gives us $\inner{Tx}{y} = \inner{Ty}{x} = 0$ for all $x, y$. This means that $T = 0$.
+
+    However, in the real case, $T$ could simply be a rotation by $\pi/2$ which results in $\inner{Tx}{x} = 0 \;\forall x \in X$.
+\end{proof}
