@@ -1,0 +1,138 @@
+\subsection{Orthonormal Sets and Sequences}
+
+\begin{question}
+    Show that an inner product space of finite dimension $n$ has a basis $b_1 , \ldots , b_n$ of orthonormal vectors.
+    \label{section3.4-1}
+\end{question}
+\begin{proof}
+    Since the inner product space has finite dimension $n$, it has a basis $\{e_1 , e_2 , \ldots , e_n\}$ (say, all of them have norm $1$ for convenience). Now, the existence of the set of orthonormal vectors follows from the Gram-Schmidt orthogonalization procedure.
+
+    Let $b_1 = e_1$. Define $b_2 = e_2 - \inner{e_2}{b_1} e_1 \implies \inner{b_1}{b_2} = \inner{e_2}{b_1} - \inner{e_2}{b_1} \inner{e_1}{b_1} = 0$. Thus, $b_2 \perp b_1$. Also, $b_2 \neq 0$ since this would mean that $e_2 = \alpha e_1$, i.e $e_2$ and $e_1$ are linearly dependent, which is not the case. In this way, we can continue constructing $b_3 , \ldots$.
+    
+\end{proof}
+
+\begin{question}
+    How can we interpret (12*) geometrically in $\R^r$, $r \geq n$.
+    \label{section3.4-2}
+\end{question}
+\begin{proof}
+    (12*) is Bessel's inequality, which says that for any orthonormal sequence $(e_n)$, we have
+    \[\sum_{k=1}^n \abs{\inner{x}{e_k}}^2 \leq \norm{x}^2.\]
+    If we choose an orthonormal sequence which is not a basis, then we would be able to obtain the inequality, since there is some component which is not getting expressed by the orthonormal sequence.
+\end{proof}
+
+\begin{question}
+    Obtain the Schwarz inequality from (12*).
+    \label{section3.4-3}
+\end{question}
+\begin{proof}
+    (12*) is Bessel's inequality, which says that for any orthonormal sequence $(e_n)$, we have
+    \[\sum_{k=1}^n \abs{\inner{x}{e_k}}^2 \leq \norm{x}^2.\]
+    For $n = 1$, we get
+    \[\abs{\inner{x}{e}}^2 \leq \norm{x}^2.\]
+    Setting $e = y/\norm{y}$, finises the proof.
+\end{proof}
+
+\begin{question}
+    Give an example of an $x \in \ell^2$ such that we have strict inequality in (12*).
+    \label{section3.4-4}
+\end{question}
+\begin{proof}
+    Whenever we have an orthonormal basis, we would always obtain equality. Thus, finding an orthonormal sequence that is not a basis suffices. A very nice example (found on the internet) was $(e_n) = \delta_{2n}$, i.e, a sequence which has a $1$ in $2n$th position, zero elsewhere, and cannot express the sequences which contain non-zero elements in the odd positions, and hence, is not a basis.
+\end{proof}
+
+\begin{question}
+    If $(e_k)$is an orthonormal sequence in an inner product space $X$, and $x \in X$, show that $x- y$ with $y$ given by
+    \[y = \sum_{k=1}^n \alpha_k e_k\]
+    where $\alpha_k= \inner{x}{e_k}$ is orthogonal to the subspace $Y_n = \textrm{span}\{e_1 , \ldots , e_n\}$.
+    \label{section3.4-5}
+\end{question}
+\begin{proof}
+    Let $z = \sum_{i=1}^n \inner{z}{e_i} e_i \in \textrm{span}\{e_1 , \ldots  , e_n\}$. Then, $\inner{x-y}{z} = \inner{x}{z} - \inner{y}{z}$. We have that
+    \[\inner{x}{z} = \inner{x}{\sum_{i=1}^n \inner{z}{e_i} e_i} = \sum_{i=1}^n \inner{z}{e_i} \inner{x}{e_i}.\]
+    \[\inner{y}{z} = \inner{\sum_{i=1}^n\alpha_i e_i}{\sum_{i=1}^n \inner{z}{e_i} e_i} = \sum_{i=1}^n \sum_{j=1}^n \alpha_i \inner{z}{e_j} \inner{e_i}{e_j} = \sum_{i=1}^n \alpha_i \inner{z}{e_i}.\]
+    Since $\alpha_i = \inner{x}{e_i}$, we have $\inner{x}{z} - \inner{y}{z} = 0 \implies x-y \perp z$.
+    
+\end{proof}
+
+\begin{question}
+    Let $\{e_1 , \ldots , e_n\}$ be an orthonormal set in an inner product space $X$, where $n$ is fixed. Let $x \in X$ be any fixed element and $y = \beta_1 e_1 + \ldots \beta_n e_n$. Then, $\norm{x-y}$ depends on $\beta_1 , \ldots , \beta_n$. Show by direct calculation that $\norm{x-y}$ is minimum iff $\beta_i = \inner{x}{e_i}$.
+    \label{section3.4-6}
+\end{question}
+\begin{proof}
+    First, we have that
+    \[\norm{x-y}^2 = \inner{x-y}{x-y} = \norm{x}^2 + \inner{y}{x} + \inner{x}{y} + \inner{y}{y} = \norm{x}^2 - \sum_{i=1}^n \beta_i \inner{e_i}{x} - \sum_{i=1}^n \overline{\beta_i} \inner{x}{e_i} + \sum_{i=1}^n \beta_i \overline{\beta_i}\]
+    We can rewrite this as
+    \[\norm{x-y}^2 = \norm{x}^2 - \sum_{i=1}^n \beta_i \inner{e_i}{x} - \sum_{i=1}^n \overline{\beta_i} \left(\inner{x}{e_i} - \beta_i \right)\]
+    Clearly, setting $\beta_i = \inner{x}{e_i}$ sets the terms inside the parenthesis to $0$ and gives $\norm{x-y}^2 = \norm{x}^2 - \sum_{i=1}^n \abs{\inner{x}{e_i}}^2.$ Since the norm is non-negative, we get
+    \[\sum_{i=1}^n \abs{\inner{x}{e_i}}^2 \leq \norm{x}^2.\]
+
+    Now, suppose $\beta_i  =\inner{x}{e_i}$. Then, $\norm{x-y}^2 = \norm{x}^2 - \sum_{i=1}^n \abs{\inner{x}{e_i}}^2.$ Since the norm is non-negative, we get
+    \[\sum_{i=1}^n \abs{\inner{x}{e_i}}^2 \leq \norm{x}^2.\]
+\end{proof}
+
+\begin{question}
+   Let $(e_k)$ be any orthonormal sequence in an inner product space $X$. Show that for any $x ,y \in X$, 
+   \[\sum_{k=1}^\infty \abs{\inner{x}{e_k}\inner{y}{e_k}} \leq \norm{x}\norm{y}.\]
+    \label{section3.4-7}
+\end{question}
+\begin{proof}
+    Using Cauchy Schwarz, we get
+    \[\sum_{k=1}^\infty \abs{\inner{x}{e_k}\inner{y}{e_k}} \leq \sqrt{\sum_{k=1}^\infty \abs{\inner{x}{e_k}}^2} \sqrt{\sum_{k=1}^\infty \abs{\inner{y}{e_k}}^2} \leq \norm{x} \norm{y}\]
+    where the last inequality follows from Bessel Inequality.
+\end{proof}
+
+\begin{question}
+    Show that an element $x$ of an inner product space $X$ cannot have too many Fourier coefficients $\inner{x}{e_k}$ which are big. Show that for an orthonormal sequence $(e_n)$, the number $n_m$ of $\inner{x}{e_k}$ such that $\abs{\inner{x}{e_k}} \g 1/m$ must satisfy $n_m \leq m^2 \norm{x}^2$.
+    \label{section3.4-8}
+\end{question}
+\begin{proof}
+    Using Bessel's inequality, we have
+    \[\sum_{i=1}^n \abs{\inner{x}{e_i}}^2 \leq \norm{x}^2.\]
+    Let $n_m$ coefficients be such that $\abs{\inner{x}{e_k}} \g 1/m$. Then, we have
+    \[\norm{x}^2 \geq \sum_{i=1}^n \abs{\inner{x}{e_i}}^2 \geq \sum_{\abs{\inner{x}{e_k}} \g 1/m} \abs{\inner{x}{e_k}}^2 + \sum_{\abs{\inner{x}{e_k}} \l 1/m} \abs{\inner{x}{e_k}}^2 \geq \frac{n_m}{m^2}.\]
+    Rearraging gives us the result.
+\end{proof}
+
+\begin{question}
+   Orthonormalize the first three terms of the sequence $(x_0 , x_1 , x_2 , \ldots)$, where $x_j(t) = t^j$ on the interval $[-1,1]$, and
+   \[\inner{x}{y} = \int_{-1}^{1} x(t) y(t) \; dt.\]
+    \label{section3.4-9}
+\end{question}
+\begin{proof}
+    We are given the sequence $(1 , t^1 , t^2 , \ldots)$ which we are required to orthonormalize. We first calculate the norms for each term:
+    \[\norm{1} = \sqrt{\int_{-1}^{1} 1 \cdot 1 \; dt} = \sqrt{2}.\]
+    \[\norm{t} = \sqrt{\int_{-1}^{1} t^2 \; dt} = \sqrt{\frac{2}{{3}}}.\]
+    Now, using the Gram-Schmidt orthogonalization, we get
+    \[b_1 = \frac{1}{\norm{1}} = \frac{1}{\sqrt{2}}.\]
+    \[b_2^\prime = t - \inner{t}{b_1}b_1 = t -  \frac{1}{\sqrt{2}} \int_{-1}^{1} \frac{t}{\sqrt{2}} \; dt = t \implies b_2 = \frac{t}{\norm{t}} = \frac{\sqrt{3}t}{\sqrt{2}}. \]
+    \[b_3^\prime = t^2 - \inner{t^2}{b_2} b_2 - \inner{t^2}{b_1}b_1 = t^2 -  \frac{\sqrt{3}t}{\sqrt{2}} \int_{-1}^{1} \frac{\sqrt{3}t^3}{\sqrt{2}} \; dt - \frac{1}{\sqrt{2}} \int_{-1}^{1} \frac{t^2}{\sqrt{2}} \; dt = t^2 - \frac{1}{3} \implies b_3 = \frac{3 t^2 - 1}{\norm{3t^2 - 1}}\]
+    We can calculate the norm as
+    \[\norm{3t^2 - 1} = \sqrt{\int_{-1}^{1} (3t^2 - 1)^2 \; dt} = \sqrt{\frac{18}{5} + 2 - 4} = \sqrt\frac{8}{5}.\]
+    Thus, 
+    \[b_3 = \frac{\sqrt{5} (3 t^2 - 1)}{\sqrt{8}}\]
+    
+\end{proof}
+
+\begin{question}
+    Let $x_1(t) = t^2$, $x_2(t) = t$ and $x_3(t) = 1$. Orthonormalize $x_1 , x_2 , x_3$ in this order on the interval $[-1,1]$ with respect to the inner product given in \ref{section3.4-9}.
+    \label{section3.4-10}
+\end{question}
+\begin{proof}
+    We are given the sequence $(t^2 , t , 1 , \ldots)$ which we are required to orthonormalize. Calculating the norm:
+    \[\norm{t^2} = \sqrt{\int_{-1}^{1} t^4 \cdot 1 \; dt} = \sqrt\frac{2}{5}.\]
+    Select the first vector as
+    \[b_1 = \frac{t^2}{\norm{t^2}} = \frac{\sqrt{2} t^2}{\sqrt{5}}.\]
+    Now, the second vector is calculated as
+    \[b_2^\prime = t - \inner{t}{b_1} b_1 = t - \frac{\sqrt{2} t^2}{\sqrt{5}} \int_{-1}^{1} \frac{\sqrt{2} t^3}{\sqrt{5}} \; dt = t\]
+    and the norm is
+    \[\norm{b_2^\prime} = \norm{t} = \sqrt{\int_{-1}^{1} t^2 \; dt }= \sqrt\frac{2}{3}\]
+    resulting in 
+    \[b_2 = \frac{t}{\norm{t}} = \frac{\sqrt{3}t}{\sqrt{2}}.\]
+    Finally, we get
+    \[b_3^\prime = 1 - \inner{1}{b_2} b_2 - \inner{1}{b_1}{b_1} = 1 - \frac{\sqrt{3}t}{\sqrt{2}}\int_{-1}^{1} \frac{\sqrt{3}t}{\sqrt{2}} \;dt - \frac{\sqrt{2} t^2}{\sqrt{5}} \int_{-1}^1 \frac{\sqrt{2} t^2}{\sqrt{5}} \; dt = \frac{15- 4t^2}{15}\]
+    and the norm is given by 
+    \[\norm{b_3^\prime} = \sqrt{\int_{-1}^1 (15-4t^2)^2 \; dt} = 550 + \frac{32}{5} - 80 = \sqrt\frac{2382}{5}\]
+    and hence, 
+    \[b_3 = \frac{\sqrt{5}(15-4t^2)}{\sqrt{2382}}.\]
+\end{proof}
