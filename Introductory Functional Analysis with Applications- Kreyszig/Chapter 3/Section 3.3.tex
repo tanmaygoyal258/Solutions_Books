@@ -1,0 +1,120 @@
+\subsection{Orthogonal Complements and Direct Sums}
+
+\begin{question}
+    Let $H$ be a Hilbert Space, $M \subset H$ is convex, $(x_n)$ is a sequence in $M$ such that $\norm{x_n} \rightarrow d$, where $d = \inf\limits_{x \in M} \norm{x}$. Show that $(x_n)$ converges in $H$.
+    \label{section3.3-1}
+\end{question}
+\begin{proof}
+    Since $H$ is complete, it suffices to show $(x_n)$ is Cauchy. First, we have that $\forall x \in M, d \leq \norm{x}$. Also, assume $\norm{x}_n = d_n$ such that $d_n \rightarrow d$. Then, we have
+    \[\norm{x_n - x_m}^2 = 2\norm{x_n}^2 + 2\norm{x_m}^2 - \norm{x_n + x_m}^2 = 2d_n^2 + 2d_m^2 - 4\norm{\frac{x_n + x_m}{2}}^2 \leq 2d_n^2 + 2d_m^2 - 4d^2 \rightarrow 0.\]
+    where the last inequality follows since $\frac{x_n + x_m}{2} \in M$. Thus, $(x_n)$ is Cauchy.
+\end{proof}
+
+\begin{question}
+    Show that $M = \{y = (\eta_j) \mid \sum \eta_j = 1\}$ of complex space $\C^n$ is complete and convex. Find the vector of minimum norm in $M$.
+    \label{section3.3-2}
+\end{question}
+\begin{proof}
+    First, we show $M$ is convex. Consider any $y_1 , y_2 \in M$. Then, $\alpha y_1 + (1-\alpha) y_2 = (\alpha \eta^{(1)}_j + (1-\alpha) \eta^{(2)}_j)$. Clearly
+    \[\sum (\alpha \eta^{(1)}_j + (1-\alpha) \eta^{(2)}_j) = \alpha \sum \eta^{(1)}_j + (1-\alpha) \sum \eta^{(2)}_j = \alpha  + (1-\alpha) = 1.\]
+    since $\sum \eta^{(1)}_j = \sum \eta^{(2)}_j = 1$. Thus $M$ is convex. Also, let $(y_n)$ be some Cauchy sequence in $M$. Then, we have $\forall \epsilon \g 0$, there exists $N(\epsilon)$ such that $\forall m,r \g N(\epsilon)$, $\norm{y_m - y_r} \l \epsilon $. Using the $\ell^2$ norm, we basically get $\abs{\eta^{(m)}_j - \eta^{(r)}_j}^2 \l \epsilon^2$, and hence, the sequence $(\eta_j^{(r)})_r$ is convergent, to say $\eta_j$. Thus, defining $y = (\eta_j)$, we wish to show that $y_r \rightarrow y$ and $y \in M$, i.e $\sum \eta_j = 1$. First, it is easy to see that
+    \[\lim_{r \rightarrow \infty} \norm{y_r - y_m} = \lim_{r \rightarrow \infty} \norm{y_r - y} = 0.\]
+    Finally, we have
+    \[\eta^{(m)}_j \rightarrow \eta_j \implies 1 = \sum \eta^{(m)}_j \rightarrow \sum \eta_j\]
+    Thus, $y \in M$, and hence, the subset $M$ is closed.
+    Suppose we wish to minimize the $\ell^p$ norm. We have that
+    \[\sum \eta_j = 1 = \abs{\sum \eta_j} \leq \norm{y}_p \norm{(1,1,\ldots, 1)}_q \implies \norm{y}_p \geq \frac{1}{n^{1/q}} = n^{1/p - 1}.\]
+    To find the corresponding $y$ that achieves the minimum norm, we need an equality in Hölder's inequality, when $y$ is a scalar multiple of $(1,1,\ldots,1)$, resulting in the point $(\frac{1}{n} , \ldots , \frac{1}{n})$.
+\end{proof} 
+
+\begin{question}
+   (a) Show that the vector space $X$ of all real valued continuous functions on $[-1,1]$ is the direct sum of the set of all even continuous functions and the set of all odd continuous functions on $[-1,1]$. (b) Give examples of representations on $\R^3$ as a direct sum of (i) of a subspace and its orthogonal complement and (ii) of any complementary pair of subspaces.
+    \label{section3.3-3}
+\end{question}
+\begin{proof}
+    Recall an even continuous function is a function $f$ such that $f(-x) = f(x)$ and an odd continuous function is a function $f$ such that $f(-x) = -f(x)$. Define $g(x) = \frac{f(x) + f(-x)}{2}$ and $h(x) = \frac{f(x) - f(-x)}{2}$. It is easy to see, $g(-x) = g(x)$ while $h(-x) = -h(x)$, and hence, $g$ is even while $h$ is odd. Also, $f(x) = g(x) + h(x)$. Thus, we can express the space of all real continuous functions as the direct sum of even and odd continuous functions.
+
+    (a) Consider the subspace $x-$axis, so that the orthogonal subspace is the $yz-$plane. Clearly, $\R^3$ is the direct sum of both these spaces. (b) The example in (a)
+    suffices.
+ 
+\end{proof}
+
+\begin{question}
+    (a) Show that the conclusion of Theorem 3.3-1 also holds if $X$ is a Hilbert space and $M \subset X$ is a closed subspace. (b) How could we use Appolonius' identity in the proof of Theorem 3.3-1?
+    \label{section3.3-4}
+\end{question}
+\begin{proof}
+    Theorem 3.3- says that for an inner product space $X$ and a nonempty convex subset $M$ which is complete, for every $x \in X$, there exists a unique $y \in M$ such that
+    \[\delta = \inf_{\tilde{y} \in M} \norm{x - \tilde{y}} = \norm{x - y}.\]
+    Now, since $X$ is Hilbert (complete) and $M$ is closed, $M$ is also complete. Moreover, since $M$ is a subspace, it is convex, and hence, all conditions of the Theorem hold.
+
+    (b) \textcolor{red}{TODO}.
+ \end{proof}
+
+\begin{question}
+    Let $X = \R^2$. Find $M^\perp$ if $M$ is (a) $\{x\}$, where $x = (\xi_1 , \xi_2) \neq 0$ (b) a linearly independent set $\{x_1 , x_2\} \subset X$.
+    \label{section3.3-5}
+\end{question}
+\begin{proof}
+    (a) If $x = (\xi_1 , \xi_2)$, then the set of points of the form $\{(\eta , -\frac{\eta \xi_1}{\xi_2}) \mid \eta \in R\}$ is perpendicular to $M$.
+
+    (b) Let $y \perp M$. Then, $y = \alpha_1 x_1 + \alpha_2 x_2$, since $\dim X = 2$, any linearly independent set with two vectors will then be a basis. We now have, $\inner{y}{x_1} = 0$ and $\inner{y}{x_2} = 0$ which gives us $\alpha_1 = 0$ and $\alpha_2 = 0$, giving us $M^\perp = \{0\}$.
+\end{proof}
+
+\begin{question}
+    Show that $Y = \{x \mid x = (\xi_j) \in \ell^2 , \xi_{2n} = 0 , n \in \mathbb{N}\}$ is a closed subspace of $\ell^2$ and find $Y^\perp$. What is $Y^\perp$ if $Y = \textrm{span}\{e_1 , \ldots , e_n\} \subset \ell^2$, where $e_j = (\delta_{jk})?$
+    \label{section3.3-6}
+\end{question}
+\begin{proof}
+    Let $x \in \overline{Y}$. Then. there exists a sequence $(x_n) = (\xi^{(n)}_j) \in Y$ such that $x_n \rightarrow x$. For a fixed $j = 2k$, $k \in N$, we have $\xi^{(n)}_2k = 0 \forall n$, and hence $\xi^{(n)}_2k \rightarrow 0$. Since a series converges to the limits of its subsequences, $x_{2k} = 0 \forall k \in \mathbb{N}$. Thus, $x \in Y$, and hence $Y$ is closed. 
+
+    Now, we claim that 
+    \[Y^\perp = \{z \mid z_{2n-1} = 0 \;\forall n \in \mathbb{N}\}.\]
+    Denote $Z =  \{z \mid z_{2n-1} = 0 \forall n \in \mathbb{N}\}$. Clearly, for any $z \in Z$, $\inner{z}{y} = 0 \;\forall y \in Y$, and hence, $Z \subset Y^\perp$. Now, let $m \in Y^\perp$. Then, define some new sequence $l$ such that $l_{2n} = m_{2n}$ and $l_{2n+1} = 0$. Clearly, $l \in Y^\perp$ and $l \in Z$, and hence, $Y^\perp \subset Z$. Thus, $Y^\perp = Z$.
+    
+\end{proof}
+
+\begin{question}
+    Let $A$ and $A \subset B$ be nonempty subsets of an inner product space $X$. Show that (a) $A \subset A^{\perp\perp}$, (b) $B^\perp \subset A^\perp$, (c) $A^{\perp\perp\perp} = A^\perp$.
+    \label{section3.3-7}
+\end{question}
+\begin{proof}
+    (a) Let $x \in A$. Then, $x \perp y$ for all $y \in A^\perp.$ Now, for some $y \in A^\perp$, $y \perp z$ for all $z \in A^{\perp\perp}$. But $y \perp x$ and hence, $x \in A^{\perp\perp}$. Thus, $A \subset A^{\perp\perp}$.
+
+    (b) We know that $A \subset B$. Let $x \in B^\perp$. Then, $x \perp b$ for all $b \in B$. Since $A \subset B$, all points $a \in A$ also belong to $B$, and hence, $x \perp a$ for all $a \in A$. Thus, $x \in A^\perp$, and hence, $B^\perp \subset A^\perp.$
+
+    (c) First, we show that $A^{\perp\perp\perp} \subset A^\perp$. Denote $C = A^\perp$. Then, this is equivalent to showing $C^{\perp\perp} \subset C$ which follows from $(a)$. Now, we show that $A^\perp \subset A^{\perp\perp\perp}.$ Let $x \in A^\perp$. Then, $x \perp A^{\perp\perp}$. Thus, $x \in A^{\perp\perp\perp}$, and hence, $A^\perp \subset A^{\perp\perp\perp}$.
+
+\end{proof}
+
+\begin{question}
+   Show that the annihilator $M^\perp$ of a set $M \neq \emptyset$ in an inner product space $X$ is a closed subspace of $X$.
+    \label{section3.3-8}
+\end{question}
+\begin{proof}
+    We know that $M^\perp$ is always a subspace. We wish to show it is closed. Consider $x \in \overline{M^\perp}$. Then, there exists a sequence $(x_n)$ such that $x_n \rightarrow x$. Then, by the continuity of inner products, we have, for some $m \in M$, 
+    \[\inner{x_n}{m} \rightarrow \inner{x}{m}\]
+    or, $x \in M^\perp$. Thus, $M^\perp$ is closed.
+\end{proof}
+
+\begin{question}
+   Show that a subspace $Y$ of a Hilbert space $H$ is closed in $H$ iff $Y = Y^{\perp\perp}$.
+    \label{section3.3-9}
+\end{question}
+\begin{proof}
+    First we show that if $Y$ is closed then $Y = Y^ {\perp\perp}$. We know that $Y \subset Y^{\perp\perp}$. Suppose $x \in Y^{\perp\perp}$. Then, since $Y$ is closed $x = y + z$, where $y \in Y \subset Y^{\perp\perp}$ and $z \in Y^{\perp}$. Then, $z = x - y \in Y^{\perp\perp}$. This means that $z \in Y^{\perp} \cap Y^{\perp\perp} = \{0\}$, and hence $x \in Y$. Thus, $Y = Y^{\perp\perp}$.
+
+    For the converse, assume $Y = Y^{\perp\perp}$. Let $x \in \overline{Y}$. Then, there exists some sequence $y_n \in Y$ such that $y_n \rightarrow x$. We know that for all $z \in Y^{\perp}$, 
+    \[\inner{y_n}{z} = 0 \implies \lim_{n \in \rightarrow \infty} \inner{y_n}{z} = \inner{x}{z} = 0.\]
+    and hence $x \in Y$. Thus, Y is closed.
+    
+\end{proof}
+
+\begin{question}
+    If $M \neq \emptyset$ is any subset of a Hilbert space $H$, show that $M^{\perp\perp}$ is the smallest closed subspace of $H$ which contains $M$, that is $M^{\perp\perp}$ is contained in any closed subspace $Y \subset H$ such that $M \subset Y$.
+    \label{section3.3-10}
+\end{question}
+\begin{proof}
+    \textcolor{red}{TODO}.
+    
+\end{proof}
