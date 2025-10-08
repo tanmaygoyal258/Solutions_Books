@@ -1,0 +1,34 @@
+% packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{bbm}
+\usepackage{bm}
+\geometry{a4paper , left = 20mm , right = 20mm , top = 20mm , bottom = 20mm}
+
+% new math operators
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\DeclareMathOperator*{\argmax}{arg max}
+\DeclareMathOperator*{\V}{\mathbb{V}}
+
+% new commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\g}{>}
+\renewcommand{\l}{<}
+\newcommand{\dom}[1]{\mathcal{D}(#1)}
+\newcommand{\range}[1]{\mathcal{R}(#1)}
+\newcommand{\nul}[1]{\mathcal{N}(#1)}
+\newcommand{\inner}[2]{\left\langle #1 , #2 \right\rangle}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% newtheorem
+\newtheorem{question}{}[subsection]
+\renewcommand{\thequestion}{\arabic{question}} % only uses question number, otherwise label would look like (subsection).(question).

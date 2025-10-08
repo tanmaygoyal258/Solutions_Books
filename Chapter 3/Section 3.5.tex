@@ -1,0 +1,120 @@
+\subsection{Series Related to Orthonormal Sequences}
+
+\begin{question}
+    If (6) converges with sum $x$, show that (7) has the sum $\norm{x}^2$.
+    \label{section3.5-1}
+\end{question}
+\begin{proof}
+    We wish to show that if 
+    \[x = \sum_{k=1}^\infty \alpha_k e_k\]
+    then, 
+    \[\sum_{k=1}^\infty \abs{\alpha_k}^2 = \norm{x}^2\]
+    Since $\sum_{k=1}^\infty \alpha_k e_k$ converges, the sequence of partial sums converges, say $s_n$.
+    \[\norm{s_n}^2 = \inner{\sum_{k=1}^n \alpha_k e_k}{\sum_{k=1}^n \alpha_k e_k} = \sum_{k=1}^n \abs{\alpha_k}^2.\]
+    Now, since $s_n \rightarrow x$, we have 
+    \[\inner{s_n}{s_n} - \inner{x}{x} = \inner{s_n -x}{s_n} + \inner{x}{s_n - x 
+    } \leq \norm{s_n - x}\norm{s_n} + \norm{x}\norm{s_n - x} \rightarrow 0.\]
+    and hence, $\norm{s_n}^2 = \norm{x}^2.$
+    Now, note that the partial sums for $\sum_{k=1}^\infty \abs{\alpha_k}^2$ is precisely $\norm{s_n}^2$, and hence, the quantity $\sum_{k=1}^\infty \abs{\alpha_k}^2$ converges to $\norm{x}^2$.
+\end{proof}
+
+\begin{question}
+    Derive from (1) and (2) a Fourier series representation of a function $\tilde{x}$ (as a function of $\tau)$  of arbitrary period $p$.
+    \label{section3.5-2}
+\end{question}
+\begin{proof}
+    We have that $x(t) = a_0 + \sum_{k=1}^\infty (a_k \cos kt + b_k \sin kt)$, where
+    \[a_0 = \frac{1}{2\pi}\int_{0}^{2\pi} x(t) \; dt \;\; a_k = \frac{1}{\pi}\int_{0}^{2\pi} x(t) \cos kt \; dt \;\; a_0 = \frac{1}{\pi}\int_{0}^{2\pi} x(t) \sin kt \; dt \;\;\]
+
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{question}
+    Illustrate with an example that a convergent series $\sum \inner{x}{e_k} e_k$ need not have the sum $x$.
+    \label{section3.5-3}
+\end{question}
+\begin{proof}
+    A simple example could be one where we do not consider all components of the basis. For example, let $\{e_1 , \ldots , e_n\}$ be a basis and $x = \sum \inner{x}{e_k} e_k$. Consider only one term of the sum $\inner{x}{e_1}{e_1}$. This is convergent, but the sum does not equal to $x$.
+\end{proof}
+
+\begin{question}
+    If $(x_j)$ is a sequence in an inner product space $X$ such that the series $\norm{x_1} + \norm{x_2} + \ldots$ converges, show that $(s_n)$ is a Cauchy sequence, where $s_n = x_1 + \ldots + x_n$.
+    \label{section3.5-4}
+\end{question}
+\begin{proof}
+    To show $(s_n)$ is Cauchy, we wish to show that for all $\epsilon \g 0$, we have some $N(\epsilon)$ such that for all $m,n \g N(\epsilon)$, $\norm{\sum_{i=m+1}^n x_i} \l \epsilon$.
+
+    Now, since $\norm{x_1} + \norm{x_2} + \ldots$ converges, the sequence of partial sums converges, and hence, is Cauchy. This means that for all $\epsilon \g 0$, we have some $N(\epsilon)$ such that for all $m,n \g N(\epsilon)$ and
+    \[\norm{\sum_{i=m+1}^n \norm{x_i}} \leq \sum_{i=m+1}^n \norm{x_i} \l \epsilon\]
+    and hence, for the sequence of partial sums we have
+    \[\norm{s_m - s_n}  = \norm{\sum_{i=m+1}^n x_i} \leq \sum_{i=m+1}^n \norm{x_i} \l \epsilon\]
+\end{proof}
+
+\begin{question}
+    Show that in a Hilbert space $H$, convergence of $\sum \norm{x_j}$ implies convergence of $\sum x_j$.
+    \label{section3.5-5}
+\end{question}
+\begin{proof}
+    Suppose $\sum \norm{x_j}$ converges, then the sequence of partial sums is Cauchy, which means
+    \[\forall \epsilon \g 0 \; \exists N(\epsilon) ; \forall m,n \g N(\epsilon) ,\norm{\sum_{i=m}^n \norm{x_j}} \leq \sum_{i=m}^n \norm{x_j} \leq \epsilon.\]
+    Thus, consider the partial sums of the sequence $\sum x_j$, we get
+    \[\norm{\sum_{i=m}^n x_j} \leq \sum_{i=m}^n \norm{x_j} \leq \epsilon.\]
+    Thus, the sequence of partial sums is Cauchy, and hence, due to the completeness of the Hilbert space, the seqeunce is converging.
+\end{proof}
+
+
+\begin{question}
+    Let $(e_j)$ be an orthonormal sequence in a Hilbert space $H$. Show that if 
+    \[x = \sum_{j=1}^\infty \alpha_j e_j \;\; y = \sum_{j=1}^\infty \beta_j e_j \implies \inner{x}{y} = \sum_{j=1}^\infty \alpha_j \overline{\beta}_j,\]
+    the series being absolutely convergent.
+    \label{section3.5-6}
+\end{question}
+\begin{proof}
+    It is easy to see
+    \[\inner{x}{y} = \inner{\sum_{j=1}^\infty \alpha_j e_j}{\sum_{j=1}^\infty \beta_j e_j} = \sum_{j=1}^\infty\sum_{k=1}^\infty \alpha_j \overline{\beta_k} \inner{e_j}{e_k} = \sum_{j=1}^\infty \alpha_j \overline{\beta_j}.\]
+\end{proof}
+
+\begin{question}
+    Let $(e_j)$ be an orthonormal sequence in a Hilbert space $H$. Show that for every $x \in H$,
+    \[ y = \sum_{j=1}^\infty \inner{x}{e_j} e_j \]
+    exists in $H$ and $x-y$ is orthogonal to every $e_k$.
+    \label{section3.5-7}
+\end{question}
+\begin{proof}
+    First, we know that $y = \sum_{j=1}^\infty \inner{x}{e_j} e_j$ converges if and only if $\sum_{j=1}^\infty \abs{\inner{x}{e_j}}^2$ converges, which is taken care of by Bessel's inequality. Now, we have
+    \[\inner{x-y}{e_k} = \inner{x}{e_k} - \inner{y}{e_k} = \inner{x}{e_k} - \sum_{j=1}^\infty \inner{x}{e_j} \inner{e_k}{e_j} = 0 \implies (x-y) \perp e_k.\]
+\end{proof}
+
+
+\begin{question}
+    Let $(e_j)$ be an orthonormal sequence in a Hilbert space $H$ and let $M = \textrm{span}(e_k)$. Show that for any $x \in H$ we have $x \in \overline{M}$ if and only if $x$ can be represented by (6) with coefficients $\alpha_k = \inner{x}{e_k}.$
+    \label{section3.5-8}
+\end{question}
+\begin{proof}
+    Let $x \in \overline{M}$. Then, there exists some sequence $x_n \in M$ such that $x_n \rightarrow x$. Let $x_n = \sum \inner{x_n}{e_k} e_k$. Since, $x_n \rightarrow x$, we have that $\norm{x_n - x} \rightarrow 0.$ Then, we have
+    \[\inner{x_n -x}{e_k} \leq \norm{x_n - x} \norm{e_k} \rightarrow 0 \implies \inner{x_n}{e_k} \rightarrow \inner{x}{e_k}.\]
+    and hence, $x_n \rightarrow x = \sum \inner{x}{e_k} e_k$.
+
+    On the other hand, let $x = \sum \inner{x}{e_k} e_k$. Then, each of the partial sums, say $s_n$ converges to $x$, and $s_n \in M$. Thus, $x \in \overline{M}$.
+\end{proof}
+
+\begin{question}
+    Let $(e_n)$ and $(\tilde{e_n})$ be orthonormal sequences in a Hilbert space $H$, and let $M_1 = \textrm{span}(e_n)$ and $M_2 = \textrm{span}(\tilde{e_n})$. Using \ref{section3.5-8}, show that $\overline{M_1} = \overline{M_2}$ if and only if
+    \[(a) \; e_n = \sum_{m=1}^\infty \alpha_{nm} \tilde{e_m} \;\; (b) \; \tilde{e_n} = \sum_{m=1}^\infty \overline{\alpha_{nm}} e_m , \;\; \alpha_{nm} = \inner{e_n}{\tilde{e_m}}.\]
+    \label{section3.5-9}
+\end{question}
+\begin{proof}
+    From \ref{section3.5-8}, we have that if $e_n$ and $\tilde{e_n}$ have the particular representation, then $e_n \in \overline{M_2}$ and $\tilde{e_n} \in \overline{M_1}$. This means that $(e_n) \in \overline{M_2}$ and $(\tilde{e_n}) \in \overline{M_1}$. Thus, $\overline{M_1} = \overline{M_2}$, since $e_n$ (which is in $\overline{M_2}$) can be written in terms of $(\tilde{e_n})$, which is in $\overline{M_1}$.
+\end{proof}
+
+\begin{question}
+    Work out the details of the proof of Lemma 3.5-3.
+    \label{section3.5-10}
+\end{question}
+\begin{proof}
+    We wish to show that for any $x$, we can have countably many nonzero Fourier coefficients. From Bessel's inequality, we have
+    \[\sum_{j=1}^\infty \abs{\inner{x}{e_j}}^2 \leq \norm{x}^2.\]
+    Consider the coefficients $\inner{x}{e_j} \g \frac{1}{m}.$ Let the number of such coefficients be $n_m$. Then, we have
+    \[\norm{x}^2 \geq \sum_{j=1}^\infty \abs{\inner{x}{e_j}}^2 \geq \sum_{\abs{\inner{x}{e_j}} \g 1/m} \abs{\inner{x}{e_j}}^2 + \sum_{\abs{\inner{x}{e_j}} \l 1/m} \abs{\inner{x}{e_j}}^2 \geq \frac{n_m}{m^2}.\]
+    Thus, we get $n_m \leq \norm{x}^2 m^2$ which is countable for each $m$, and hence, the total number of coefficients with non-zero values are also countable.
+\end{proof}

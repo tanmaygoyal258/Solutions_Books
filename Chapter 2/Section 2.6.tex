@@ -1,0 +1,227 @@
+\subsection{Linear Operators}
+
+\begin{question}
+    Show that the operators in 2.6-2, 2.6-3, and 2.6-4 are linear.
+    \label{section2.6-1}
+\end{question}
+\begin{proof}
+    We are required to show that
+    \begin{enumerate}
+        \item The identity operator: $I : X \mapsto X$ defined as $Ix = x$ is linear. Note that
+        $I(\alpha x + \beta y) = \alpha x + \beta y = \alpha Ix + \beta Iy$.
+        Hence, the operator is linear.
+        \item The zero operator, defined as $0 : X \mapsto X$ such that $0x = 0$ is linear. Indeed, 
+        \[0(\alpha x + \beta y) = 0 = \alpha 0x + \beta 0y\]
+         and hence, the operator is linear.
+         \item The differntiation operator, defined on $X$, the space of all polynomials on $[a,b]$ as
+         \[Tx(t) = x^\prime(t)\]
+         is linear. Notice that
+         \[T(\alpha x + \beta y)(t) = (\alpha x + \beta y)^\prime(t) = \alpha x^\prime(t) + \beta y^\prime(t) = (\alpha Tx + \beta Ty)(t)\]
+    \end{enumerate}
+\end{proof}
+
+\begin{question}
+    Show that the operators $T_1 , \ldots , T_4$ from $\R^2$ to $\R^2$ defined by
+    \begin{enumerate}
+        \item $(\xi_1 , \xi_2) \mapsto (\xi_1 , 0)$
+        \item $(\xi_1 , \xi_2) \mapsto (0,\xi_2)$
+        \item $(\xi_1 , \xi_2) \mapsto (\xi_2 , \xi_1)$
+        \item $(\xi_1 ,\xi_2) \mapsto (\gamma \xi_1 , \gamma \xi_2)$
+    \end{enumerate}
+    respectively are linear, and interpret this operations geometrically.
+    \label{section2.6-2}
+\end{question}
+\begin{proof}
+    \begin{enumerate}
+        \item We have,
+        \begin{align*}
+            T_1(\alpha(\xi_1 , \xi_2) + \beta(\eta_1 , \eta_2)) &= T_1((\alpha \xi_1 + \beta \eta_1 , \alpha \xi_2 + \beta \eta_2)) 
+            = (\alpha \xi_1 + \beta \eta_1 , 0) 
+            = \alpha (\xi_1 , 0) + \beta (\eta_1 , 0) \\
+            &= \alpha T_1((\xi_1 , \xi_2)) + \beta T_1((\eta_1 , \eta_2))
+        \end{align*} 
+        and hence, the operator is linear. Ideally, this is a projection onto the $\xi_1-$axis.
+        \item We have,
+        \begin{align*}
+            T_2(\alpha(\xi_1 , \xi_2) + \beta(\eta_1 , \eta_2)) &= T_2((\alpha \xi_1 + \beta \eta_1 , \alpha \xi_2 + \beta \eta_2)) 
+            = (0 , \alpha \xi_2 + \beta \eta_2) 
+            = \alpha (0 , \xi_2) + \beta (0 , \eta_2) \\
+            &= \alpha T_2((\xi_1 , \xi_2)) + \beta T_2((\eta_1 , \eta_2))
+        \end{align*} 
+        and hence, the operator is linear. Ideally, this is a projection onto the $\xi_2-$axis.
+        \item We have,
+        \begin{align*}
+            T_3(\alpha(\xi_1 , \xi_2) + \beta(\eta_1 , \eta_2)) &= T_3((\alpha \xi_1 + \beta \eta_1 , \alpha \xi_2 + \beta \eta_2)) 
+            = (\alpha \xi_2 + \beta \eta_2 , \alpha \xi_1 + \beta \eta_1) 
+            = \alpha (\xi_2 , \xi_1) + \beta (\eta_2 , \eta_1) \\
+            &= \alpha T_3((\xi_1 , \xi_2)) + \beta T_3((\eta_1 , \eta_2))
+        \end{align*} 
+        and hence, the operator is linear. Ideally, this is a reflection about the line $\xi_1 = \xi_2$.
+        \item We have,
+        \begin{align*}
+            T_4(\alpha(\xi_1 , \xi_2) + \beta(\eta_1 , \eta_2)) &= T_4((\alpha \xi_1 + \beta \eta_1 , \alpha \xi_2 + \beta \eta_2)) 
+            = (\alpha\gamma \xi_1 + \beta\gamma \eta_1, \alpha\gamma \xi_2 + \beta\gamma \eta_2 ) 
+            \\
+            &= \alpha (\gamma \xi_1 , \gamma\xi_2) + \beta (\gamma\eta_1 , \gamma\eta_2) \\
+            &= \alpha T_4((\xi_1 , \xi_2)) + \beta T_4((\eta_1 , \eta_2))
+        \end{align*} 
+        and hence, the operator is linear. Ideally, this is a scaling operation by the factor $\gamma$.
+    \end{enumerate}
+\end{proof}
+
+\begin{question}
+    What are the domain, range, and null space of $T_1 , T_2 , T_3$ in \ref{section2.6-2}?
+    \label{section2.6-3}
+\end{question}
+\begin{proof}
+    We have,
+    \begin{enumerate}
+        \item $\dom{T_1} = \R^2 , \range{T_1} = \xi_1-$axis, $\nul{T_1} = \xi_2-$axis.
+        \item $\dom{T_2} = \R^2 , \range{T_2} = \xi_2-$axis, $\nul{T_2} = \xi_1-$axis.
+        \item $\dom{T_3} = \R^2 , \range{T_3} = \R^2$, $\nul{T_3}=$ origin.
+    \end{enumerate}
+\end{proof}
+
+\begin{question}
+    What is the null space of $T_4$ in \ref{section2.6-2}? Of $T_1$ and $T_2$ in 2.6-7? of $T$ in 2.6-4?
+    \label{section2.6-4}
+\end{question}
+\begin{proof}
+    The null space of $T_4$ in \ref{section2.6-2} is the origin if $\gamma \neq 0$ and $\R^2$ if $\gamma = 0$. If $\gamma = 0$, then $T_4$ is the zero operator.
+
+    In 2.6-7, $T_1$ is the cross-product defined on $\R^3$. Keeping one input fixed, the null space is simply all the scaled versions of the first input. $T_2$ is the dot product defined on $\R^3$. Keeping one input fixed, the null space is the set of all vectors which are orthogonal to the first.
+
+    $T$ in 2.6-4 is the differentiation operator on the space of all polynomials defined in $[a,b].$ In such a case, we wish to find the set of polynomials such that the differentiation results in a zero polynomial, or a polynomial that is zero at each point in $[a,b]$. Thus, all the constant polynomials constitute the null space.
+ \end{proof}
+
+ \begin{question}
+     Let $T : X \mapsto Y$ be a linear operator. Show that the image of a subspace $V$ of $X$ is a vector space, and so is the inverse image of a subspace $W$ of $Y$.
+     \label{section2.6-5}
+  \end{question}
+  \begin{proof}
+      Let $V$ be a subspace of $X$. We wish to show that $T(V)$ is also a subspace. In other words, let $v_1 , v_2 \in V$ and $Tv_1, Tv_2 \in T(V)$. We wish to show that $\alpha Tv_1 + \beta Tv_2 \in T(V)$, i.e, $\exists v_3 \in V $ such that $Tv_3 = \alpha Tv_1 + \beta Tv_2$. Since, $T$ is a linear operator, we have
+      \[\alpha Tv_1 + \beta Tv_2 = T(\alpha v_1) + T(\beta v_2) = T(\alpha v_1 + \beta v_2) \]
+      and since $V$ is a subspace, $\alpha v_1 + \beta v_2 \in V$. Thus, setting $v_3 = \alpha v_1 + \beta v_2$ completes the proof.
+
+      Let $T^{-1}$ denote the inverse mapping of $T$. Let $w_1 , w_2 \in W$ and $T^{-1}w_1 , T^{-1}w_2 \in T^{-1}(W)$. We wish to show that $\exists w_3 \in W$ such that $T^{-1}w_3 = \alpha T^{-1}w_1 + \beta T^{-1}w_2$. This implies that $\alpha T^{-1}w_1 + \beta T^{-1}w_2 \in T^{-1}(W)$ and hence, $T^{-1}(W)$ is a subspace. Since $T$ is a linear mapping we have
+      \[T(\alpha T^{-1}w_1 + \beta T^{-1}w_2) = \alpha TT^{-1}w_1 + \beta TT^{-1}w_2 = \alpha w_1 + \beta w_2\]
+      where we use the fact that $TT^{-1} = I$. Thus, we have
+      \[\alpha T^{-1}w_1 + \beta T^{-1}w_2 = T^{-1}(\alpha w_1 + \beta w_2)\]
+      and hence, setting $w_3 = \alpha w_1 + \beta w_2$ completes the proof.
+  \end{proof}
+
+  \begin{question}
+      If the product of two linear operator exists, show that it is linear.
+      \label{section2.6-6}
+  \end{question}
+  \begin{proof}
+      Let $T_1 : X \mapsto Z$ and $T_2 : Z \mapsto Y$ be two linear functions such that their product is defined as $T_2 T_1 : X \mapsto Y$. Then, we have for $x_1 , x_2 \in X$
+      \begin{align*}
+          T_2 T_1(\alpha x_1 + \beta x_2) = T_2 (\alpha T_1 x_1+ \beta T_1 x_2) = \alpha T_2(T_1 x_1) + \beta T_2(T_1 x_2) = \alpha T_2 T_1 x_1 + \beta T_2 T_1 x_2
+      \end{align*}
+      where the first equality follows since $T_1$ is linear, and the second follows from the fact that $T_2$ is linear. Hence, their composite is also linear.
+  \end{proof}
+
+  \begin{question}
+      Let $X$ be any vector space and $S : X \mapsto X$ and $T : X \mapsto X$ be any operators. $S$ and $T$ are said to commute if $ST = TS$. Do $T_1$ and $T_3$ in \ref{section2.6-2} commute?
+      \label{section2.6-7}
+  \end{question}
+  \begin{proof}
+      Recall
+      \[T_1((\xi_1 , \xi_2)) = (\xi_1 , 0)\]
+      \[T_3((\xi_1 , \xi_2)) = (\xi_2 , \xi_1)\]
+      Then, we have
+      \[T_1T_3((\xi_1 , \xi_2)) = T_1 ((\xi_2 , \xi_1)) = (\xi_2 , 0)\]
+      while
+      \[T_3T_1((\xi_1 , \xi_2)) = T_3((\xi_1 , 0)) = (0,\xi_1)\]
+      Hence, they do not commute.
+  \end{proof}
+
+  \begin{question}
+      Write the operators in \ref{section2.6-2} using matrices.
+    \label{section2.6-8}
+  \end{question}
+  \begin{proof}
+      We have
+      \[T_1 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, T_2 = \begin{pmatrix} 0 & 0\\0 & 1 \end{pmatrix} , T_3 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, T_4 = \begin{pmatrix} \gamma & 0 \\ 0 & \gamma \end{pmatrix}\]
+  \end{proof}
+
+  \begin{question}
+      In 2.6-8, write $Ax = y$ in terms of components, show that $T$ is linear.
+      \label{section2.6-9}
+  \end{question}
+  \begin{proof}
+      We have that for some $A \in \R^{m \times n}$, $y \in R^m$, $x \in R^n$,
+      \[\eta_i = \sum_{j=1}^n A_{i,j} \xi_j.\]
+      This is linear because for $x_1 , x_2 \in \R^n$
+      \begin{align*}
+          y_i = A(\alpha x_1 + \beta x_2)_i = \sum_{j=1}^n A_{ij} (\alpha \xi^{(1)}_j + \beta \xi^{(2)}_j) 
+          = \alpha \sum_{j=1}^n  A_{ij} \xi^{(1)}_j + \beta \sum_{j=1}^n A_{ij} \xi^{(2)}_j = \alpha (Ax_1)_i + \beta (Ax_2)_i
+      \end{align*}
+  \end{proof}
+
+  \begin{question}
+      Formulate the condition in 2.6-10(a) in terms of the null space of $T$.
+      \label{section2.6-10}
+  \end{question}
+  \begin{proof}
+      The condition in 2.6-10 reads that the inverse $T^{-1} : \range{T} \mapsto \dom{T}$ exists if and only if 
+      \[T(x) = 0 \implies x = 0.\]
+      This can be reformulated as $\nul{T} = \{0\}.$
+  \end{proof}
+
+  \begin{question}
+    Let $X$ be the vector space of all complex $2 \times 2$  matrices and define $T : X \mapsto X$ by $Tx = bx$ where $b \in X$ is fixed and $bx$ denotes the usual product of matrices. Show that $T$ is linear. Under what condition does $T^{-1}$ exist?
+    \label{section2.6-11}
+  \end{question}
+  \begin{proof}
+    Matrix multiplication is linear and hence, $T$ is linear. For $T^{-1}$ to exist, the null space should only contain the zero matrix. In other words, the eigenvalues should be non-zero and hence, the matrix $b$ should be non-singular.
+  \end{proof}
+
+  \begin{question}
+      Does the inverse of A $T$ in 2.6-4 exist?
+      \label{section2.6-12}
+ \end{question}
+ \begin{proof}
+     2.6-4 is the differentiation operator. In \ref{section2.6-4}, we have shown that the null space for this operator is the set of all constant polynomials. Since the null space consists of more elements than just the zero polynomial, the inverse does not exist.
+ \end{proof}
+
+ \begin{question}
+     Let $T : \dom{T} \mapsto Y$ be a linear operator whose inverse exists. If $\{x_1 , \ldots , x_n\}$ is a linearly independent set in $\dom{T}$, show that the set $\{Tx_1 , \ldots Tx_n\}$ is linear independent.
+     \label{section2.6-13}
+ \end{question}
+ \begin{proof}
+     Since $\{x_1 , \ldots , x_n\}$ is linearly independent, we have
+\[\sum_{i=1}^n{\alpha_i x_i} = 0 \implies \alpha_i = 0 \;\forall i \in [n].\]
+Since $T$ is a linear operator, we have
+\[T\left(\sum_{i=1}^n{\alpha_i x_i}\right) = T0 = 0\]
+where the last inequality follows since $T^{-1}$ exists. Thus, we have
+\[\sum_{i=1}^n \alpha_i Tx_i = 0 \implies \alpha_i= 0\]
+and hence, $\{Tx_1 , \ldots , Tx_n\}$ is a linearly independent set.
+ \end{proof}
+
+ \begin{question}
+     Let $T : X \mapsto Y$ be a linear operator and $\dim X = \dim Y = n \l \infty$. Show that $\range{T} = Y$ if and only if $T^{-1}$ exists.
+     \label{section2.6-14}
+ \end{question}
+ \begin{proof}
+     First, assume $\range{T} = Y$. Let $\{e_1 , \ldots , e_n\}$ be some basis of $X$  To show the existence of $T^{-1}$, we wish to show that 
+     \[Ta = Tb \implies a = b.\]
+     Let $a = \sum_{i=1}^n \alpha_i e_i$ and $b = \sum_{i=1}^n \beta_i e_i$. Then,
+     \[Ta - Tb = T\left(\sum_{i=1}^n (\alpha_i - \beta_i) e_i \right) = \sum_{i=1}^n (\alpha_i - \beta_i) Te_i. \]
+     If $Ta = Tb$, then $\alpha_i = \beta_i \;\forall i \in [n]$, since $\{e_1 , \ldots , e_n\}$ are linearly independent. Thus, $a = b$.
+
+     On the other hand, let $T^{-1}$ exist. Then, we wish to show that $\range{T} = Y$. We already know that $\range{T} \subset Y$. Thus, showing $Y \subset \range{T}$ suffices. Thus, we wish to show that for any $y \in Y$, there exists some $x \in X$ such that $Tx = y.$ From \ref{section2.6-13}, we have that if $\{e_1 , \ldots , e_n\}$ is a basis for $X$, then $\{Te_1 , \ldots , Te_n\}$ is a basis for $Y$. Hence, for any $x = \sum_{i=1}^n \alpha_i e_i$, we have
+     \[Tx = T\left( \sum_{i=1}^n \alpha_i e_i \right) = \sum_{i=1}^n \alpha_i Te_i\]
+     or in other words, any $y = \sum_{i=1}^n \alpha_i Te_i$ can be written as $Tx$ where $x = \sum_{i=1}^n$. This finishes the proof.
+
+     
+ \end{proof}
+
+ \begin{question}
+     Consider the vector space $X$ of all real-valued functions which are defined on $\R$ and have derivatives of all orders everywhere on $\R$. Define $T : X \mapsto X$ by $y(t) = Tx(t) = x^\prime(t)$. Show that $\range{T}$ is all of $X$ but $T^{-1}$ does not exists.
+     \label{section2.6-15}
+ \end{question}
+ \begin{proof}
+     Suppose $x \in X$ is some function that has derivatives of all orders defined. This means that there exists some function $x_0 \in X$ such that $x_0^\prime =  x$ and at the same time $x_1 \in X$ such that $x_1 = x^\prime.$ Thus, for every function, we can find one derivative higher and one derivative lower, and similarly, every function is either the derivative of, or the integral of another function. Hence, the range is $X$. $T^{-1}$ does not exist because the null space is all constant polynomials.
+ \end{proof}

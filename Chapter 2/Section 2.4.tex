@@ -1,0 +1,156 @@
+\subsection{Finite Dimensional Normed Spaces}
+
+\begin{question}
+    Give examples of subspaces of $\ell^\infty$ and $\ell^2$ which are not closed.
+    \label{section2.4-1}
+\end{question}
+\begin{proof}
+    Consider the subspaces with finitely many non-zero terms. For example, take the sequence 
+    \[x_n = \left(1 , \frac{1}{2} , \frac{1}{3} , \ldots \frac{1}{n} , 0 , \ldots  \right)\]
+    Then, this sequence belongs to both $\ell^2$ and $\ell^ \infty$ spaces, however, the limit, does not have finitely many non-zero terms, and hence, does not belong to the subspaces. Thus, the subspaces are not closed.
+\end{proof}
+
+\begin{question}
+    What is the largest possible $c$ if $X = \R^2$ and $x_1 = (1,0), x_2 = (0,1)$? If $X = \R^3$ and $x_1=(1,0,0), x_2=(0,1,0)$, and $x_3 = (0,0,1)$?
+    \label{section2.4-2}
+\end{question}
+\begin{proof}
+    We know that
+    \[\norm{\sum_{i=1}^n \alpha_i x_i } \geq c \sum_{i=1}^n \abs{\alpha_i}.\]
+    In the first case, consider
+    \[\norm{(\alpha_1 , \alpha_2)} \geq c (\abs{\alpha_1} + \abs{\alpha_2}).\]
+    If we use, $\norm{(x,y)} = \abs{x} + \abs{y}$, since the $\ell^1$ norm is maximum, then we have
+    \[\abs{\alpha_1} + \abs{\alpha_2} \geq c (\abs{\alpha_1} + \abs{\alpha_2})\]
+    which shows $c \leq 1.$ The same holds for $\R^3$.
+\end{proof}
+
+\begin{question}
+    Show that in Def 2.4-4 the axioms of an equivalence relation hold.
+    \label{section2.4-3}
+\end{question}
+\begin{proof}
+    Def 2.4-4 says that two norms $\norm{.}$ and $\norm{.}_0$ are equivalent if 
+    \[a \norm{x}_0 \leq \norm{x} \leq b \norm{x}_0.\]
+     We now check if the conditions for equivalent relations hold:
+     \begin{enumerate}
+         \item $\norm{.}$ and $\norm{.}$ should be equivalent, which is true by setting $a = b = 1$.
+         \item If $\norm{.} \sim \norm{.}_0$, then $\norm{.}_0 \sim \norm{.}$ which is true since
+         \[\frac{1}{b} \norm{x} \leq \norm{x}_0 \leq \frac{1}{a} \norm{x}.\]
+         \item Suppose $\norm{.} \sim \norm{.}_0$ and $\norm{.}_0 \sim \norm{.}_1$, then $\norm{.} \sim \norm{.}_1$. First notice that
+         \[a \norm{x}_0 \leq \norm{x} \leq b \norm{x}_0\]
+         and 
+         \[c\norm{x}_1 \leq \norm{x}_0 \leq d\norm{x}_1.\]
+         Then, 
+         \[\norm{x}_1 \leq \norm{x} \leq \norm{x}_1\]
+         Then, we can write the following:
+         \[c\norm{x}_1 \leq \norm{x}_0 \leq \frac{1}{a} \norm{x}_1 \implies ac\norm{x}_1 \leq \norm{x}_0\]
+         \[\frac{1}{b}\norm{x} \leq \norm{x}_0 \leq d\norm{x}_1 \implies \norm{x}_0 \leq bd \norm{x}_1.\]
+     \end{enumerate}
+     This finishes the proof.
+\end{proof}
+
+\begin{question}
+    Show that equivalent norms on a vector space $X$ induce the same topology on $X$.
+    \label{section2.4-4}
+\end{question}
+\begin{proof}
+    We wish to show that the set of open sets induced by equivalent norms is the same. Let $\norm{.}_0$ and $\norm{.}_1$ be two equivalent norms such that 
+    \[c_1\norm{x}_1 \leq \norm{x}_0 \leq c_2 \norm{x}_1.\]
+   
+
+    Let $A$ be an open set under the norm $\norm{.}_0$. That means that for all $x \in A$, there exists a ball of radius $\epsilon$ contained in $A$. In other words,
+    \[B(x , \epsilon) \in A \implies \forall  a\in A , \norm{x - a}_0 \l \epsilon \implies \norm{x-a}_1 \l \frac{\epsilon}{c_1}.\]
+    This means that $A$ is also an open set under the norm $\norm{.}_1$. Thus, all the open sets induced by the metric $\norm{.}_0$ is contained in the set of open sets induced by $\norm{.}_{1}$.
+
+    In a similar way, let $A$ be an open set under the norm $\norm{.}_1$. That means that for all $x \in A$, there exists a ball of radius $\epsilon$ contained in $A$. In other words,
+    \[B(x , \epsilon) \in A \implies \forall  a\in A , \norm{x - a}_1 \l \epsilon \implies \norm{x-a}_0 \l c_2\epsilon.\]
+    This means that $A$ is also an open set under the norm $\norm{.}_0$. Thus, all the open sets induced by the metric $\norm{.}_1$ is contained in the set of open sets induced by $\norm{.}_{0}$ and hence, the set of all open sets induced, or the topologies are equal.
+\end{proof}
+
+\begin{question}
+    If $\norm{.}$ and $\norm{.}_0$ are equivalent norms on $X$, show that the Cauchy sequences in $(X , \norm{.})$ and $(X , \norm{.}_0)$ are the same.
+    \label{section2.4-5}
+\end{question}
+\begin{proof}
+    Let 
+    \[a\norm{x}_0 \leq \norm{x} \leq b\norm{x}_0.\]
+    Let $(x_n)$ be a Cauchy sequence in the space $(X , \norm{.})$, then, for some $|epsilon \g 0$, we have $N(\epsilon)$ and for all $m,n \g N(\epsilon)$, we have
+    \[\norm{x_m - x_n} \l \epsilon \implies \norm{x_m - x_n} \l \frac{\epsilon}{a}.\]
+    This means that $(x_n)$ is also a Cauchy sequence in the space $(X , \norm{.}_0)$.
+
+    In a similar fashion, let $(x_n)$ be a Cauchy sequence in the space $(X , \norm{.}_0)$. Then, for some $\epsilon \g 0$, there exists $N(\epsilon)$ such that for all $m , n \g N(\epsilon)$, we have
+    \[\norm{x_m - x_n}_0 \l \epsilon \implies \norm{x_m - x_n} \l b\epsilon\]
+    which means that $(x_n)$ is also a Cauchy sequence in the space $(X , \norm{.})$. Thus, the Cauchy sequences are equal.
+\end{proof}
+
+\begin{question}
+    Show that $\norm{.}_2$ and $\norm{.}_\infty$ are equivalent.
+    \label{section2.4-6}
+\end{question}
+\begin{proof}
+    First, we know that
+    \[\norm{x}_2 = \left( \sum_{i=1}^n \abs{\xi_i}^2\right)^{1/2}.\]
+    and
+    \[\norm{x}_\infty = \max_{i \in [n]} \abs{\xi_i}.\]
+    Thus, we have
+    \[\norm{x}_2 \leq \left( \sum_{i=1}^n \left( \max_{i \in [n]} \abs{\xi_i} \right) ^2\right)^{1/2} = \max_{i \in [n]} \abs{\xi_i} \sqrt{n} = \sqrt{n} \norm{x}_\infty\]
+    On the other hand, we have
+    \[\norm{x}_\infty^2 = \left(\max_{i \in [n]} \abs{\xi_i} \right)^2 \leq \sum_{i=1}^n \abs{\xi_i}^2 = \norm{x}_2^2\]
+    and thus, 
+    \[\norm{x}_\infty \leq \norm{x}_2^2.\]
+\end{proof}
+
+\begin{question}
+    Let $\norm{x}_2$ be defined on the set of all $n-$tuples on $\R^2$ and let $\norm{.}$ be any norm on that vector space, say $X$. Show directly, using that there exists $b \g 0$ such that $\norm{x} \leq b \norm{x}_2$ for all $x$.
+    \label{section2.4-7}
+    \end{question}
+    \begin{proof}
+        Let $x = \sum_{i=1}^n \alpha_i e_i$. Then, we have that
+        \[\norm{x} = \norm{\sum_{i=1}^n \alpha_i e_i} \leq \sum_{i=1}^n \abs{\alpha_i}\norm{e_i}\]
+        and similarly, 
+        \[\norm{x}_2^2 \leq \sum_{i=1}^n \abs{\alpha_i}^2.\]
+        Set $\norm{e_i} = \sqrt{\sum_{i=1}^n \abs{\alpha_i}^2}$, then we get
+        \[\norm{x} \leq \left(\sum_{i=1}^n \abs{\alpha_i} \right) \norm{x}_2\]
+    \end{proof}
+
+    \begin{question}
+        Show that norms $\norm{.}_1$ and $\norm{.}_2$ in Section 2.2, \ref{section2.2-8} satisfy
+        \[\frac{1}{\sqrt{n}} \norm{x}_1\leq \norm{x}_2 \leq \norm{x_1}.\]
+        \label{section2.4-8}
+    \end{question}
+    \begin{proof}
+        We have that
+        \[\norm{x}_1 = \sum_{i=1}^n \abs{\xi_i} \text{ and } \norm{x}_2 = \left( \sum_{i=1}^n \abs{\xi_i}^2 \right).\]
+        By the application of Cauchy-Schwarz, we get
+        \[\norm{x}_1 = \sum_{i=1}^n \abs{\xi_i} \leq \sqrt{\sum_{i=1}^n 1}\sqrt{\sum_{i=1}^n \abs{\xi_i}^2} = \sqrt{n} \norm{x}_2.\]
+        Also,
+        \[\norm{x}_2 = \sqrt{\sum_{i=1}^n \abs{\xi_i}^2} \leq \sqrt{\sum_{i=1}^n \abs{\xi_i}^2 + 2 \sum_{i=1}^n \frac{\prod_{j=1}^n \abs{\xi_j}}{\abs{\xi_i}}} \leq \abs{\sum_{i=1}^n \abs{\xi_i}} = \norm{x}_1.
+        \]
+    \end{proof}
+
+    \begin{question}
+        If two norms $\norm{.}$ and $\norm{.}_0$ on a vector space $X$ are equivalent, show that $\norm{x_n - x} \rightarrow 0$ implies $\norm{x_n - x}_0 \rightarrow 0$ and vice-versa.
+        \label{section2.4-9}
+    \end{question}
+    \begin{proof}
+        Let
+        \[a \norm{x}_0 \leq \norm{x} \leq b \norm{x}_0.\]
+        Then, if $\norm{x_n  -x} \rightarrow 0$, we have that for every $\epsilon \g 0$, there exists $N(\epsilon)$ such that for every $n \g N(\epsilon)$
+        \[\norm{(x_n-x) - 0} \l \epsilon \implies \norm{(x_n-x) - 0}_0 \l \frac{\epsilon}{a}\]
+        which shows that $\norm{x_n - x}_0 \rightarrow 0$. In a similar fashion, we can show that
+        \[\norm{(x_n-x) - 0}_0 \leq \epsilon \implies \norm{(x_n - x) - 0} \leq b\epsilon\]
+         and hence, $\norm{x_n - x} \rightarrow 0$.
+         
+\end{proof}
+
+\begin{question}
+    Show that all complex $m \times n$ matrices $A = (a_{jk})$ with fixed $m$ and $n$ constitute a $mn-$ dimensional vector space $Z$. Show that all norms on $Z$ are equivalent.
+    \label{section2.4-10}
+\end{question}
+\begin{proof}
+    Note that every $m \times n$ matrix can be written in the basis $\{E_{ij}\}_{i \in [m] , j \in [n]}$ where $E_{ij}$ is the matrix with $1$ in the $(i,j)^{th}$ position and zero otherwise. Hence, the dimension is $mn$. Since, it is a finite dimension space, all norms are equivalent. This is easy to see since let $X = \sum_{i,j}\alpha_{i,j}E_{i,j}$. Then, we have
+    \[\norm{X} \geq c \sum_{i,j} \abs{\alpha_{i,j}}.\]
+    Also, 
+    \[\norm{X}_0 = \norm{\sum_{i,j} \alpha_{i,j} E_{i,j}}_0 \leq \sum_{i,j} \abs{\alpha_{i,j}} \norm{E_{i,j}}_0 \leq  \frac{\max_{i,j}\norm{E_{ij}}_0}{c} \norm{X}. \]
+    and similarly, we can exchange the norms to obtain the other side of the inequality.
+\end{proof}

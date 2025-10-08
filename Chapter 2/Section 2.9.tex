@@ -1,0 +1,205 @@
+\subsection{Linear Operators and Functionals on Finite Dimensional Spaces}
+
+\begin{question}
+    Determine the null space of the operator $T : \R^3 \mapsto \R^2$ represented by
+    \[\begin{bmatrix}
+        -1 & 3 & 2\\-2 & 1 & 0
+    \end{bmatrix}\]
+\label{section2.9-1}
+\end{question}
+\begin{proof}
+    Let the null space consist of all points $[x,y , z]$. Then, we have
+    \[\begin{bmatrix}
+        1 & 3 & 2\\-2 & 1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        x\\y\\z
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        0 \\ 0
+    \end{bmatrix} \implies 
+    \begin{bmatrix}
+        x + 3y + 2z  \\ -2x + y 
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        0\\0
+    \end{bmatrix}\]
+    Solving these equations results in $y = 2x , z = -3.5x$. Thus, any point of the form
+    \[\alpha \begin{bmatrix}
+        \hphantom{-}1 \\ \hphantom{-}2 \\ -3.5
+    \end{bmatrix}\]
+    belongs to the null space.
+\end{proof}
+
+\begin{question}
+    Let $T : \R^3 \mapsto \R^3$ be defined by $(\xi_1 , \xi_2 , \xi_3) \mapsto (\xi_1 , \xi_2 , -\xi_1 - \xi_2)$. Find $\range{T}, \nul{T}$, and the matrix which represents $T$.
+    \label{section2.9-2}
+\end{question}
+\begin{proof}
+    First, the matrix that represents $T$ is given by
+    \[\begin{bmatrix}
+        1 & 0 & 0\\0 & 1 & 0\\-1 & -1 & 0
+    \end{bmatrix}\]
+    Clearly, the null space $\nul{T}$ consists of $\xi_3-$axis, i.e any point of the form $(0,0,\xi_3)$. Thus, the range $\range{T} \subset \R^3$. We can denote the range as
+    \[\range{T} = \{(x,y,z)\ \mid x + y + z = 0\}\]
+    and hence, the range is simply the plane where $x + y + z = 0$.
+\end{proof}
+
+\begin{question}
+    Find the dual basis of the basis $\{(1,0,0) , (0,1,0) , (0,0,1)\}$ for $\R^3$.
+    \label{section2.9-3}
+\end{question}
+\begin{proof}
+    We know, the dual basis $f_1,f_2,f_3$ is simply given by $\delta_{jk}$ and hence, the basis is $\{(1,0,0) , (0,1,0) , (0,0,1)\}$.
+\end{proof}
+
+\begin{question}
+    Let $\{f_1 , f_2 , f_3\}$ be the dual basis of $\{e_1 , e_2 , e_3\}$ for $\R^3$, where $e_1 = (1,1,1)$, $e_2 = (1,1,-1)$, $e_3 = (1,-1,-1)$. Find $f_1(x) , f_2(x) , f_3(x)$ for $x = (1,0,0)$.
+    \label{section2.9-4}
+\end{question}
+\begin{proof}
+    First, let $x = \sum_{i=1}^3 \xi_i e_i$. Then, 
+    \[f(x) = f\left(\sum_{i=1}^3 \xi_i e_i\right) = \sum_{i=1}^3 \xi_i f(e_i).\]
+    Denote, $f(e_i) = f_i$. Then, we call $f_i$ the dual basis. Let $f_i(e_j) = \mathbbm{1}\{e_i = e_j\}$ simply be the Kronecker Delta. In other words, $f_i(e_j) = 0$ and $f_i(e_i) = 1$.
+    
+    Now, $x = 0.5 e_1 + 0.5 e_3$. Thus, $f_1(x) = 0.5 $ and $f_3(x) = 0.5$. However, $f_2(x) = 0$.
+\end{proof}
+
+\begin{question}
+    If $f$ is a linear functional on a $n-$dimensional vector space $X$, what dimension can the null space $\nul{f}$ have?
+    \label{section2.9-5}
+\end{question}
+\begin{proof}
+    If the functional $f = 0$, then the null space is the entire space, and hence, has dimension $n$. However, if $f \neq 0$, then, say $x = \sum_{i=1}^n \alpha_i e_i \in \nul{f}$ and $x \neq 0$. Thus, $f(x) = 0$ implies that atleast one of the coefficients $\alpha_i$ is non-zero. Thus, we can renormalize and set $n-1$ coefficients, and fix $n^{th}$ coefficient would be pre-determined. In other words, the null space is 
+    \[\{(x_1 , \ldots , x_n) \mid x_1 + \ldots x_n = 0\}\]
+    which is an $(n-1)-$dimensional space.
+\end{proof}
+
+\begin{question}
+    Find a basis for the null space of the functional $f$ defined on $\R^3$ by $f(x) = \xi_1 + \xi_2 - \xi_3$.
+    \label{section2.9-6}
+\end{question}
+\begin{proof}
+    First, clearly, the null space is given by
+    \[\{(\xi_1 , \xi_2 , \xi_3) \mid \xi_1 + \xi_2 = \xi_3\}.\]
+    Thus, if we fix any two coordinates, the third coordinate gets fixed automatically. Hence, the dimension of the null space is $2$ and the basis is $\{(1,0,1) , (0,1,1)\}$ such that any vector written in terms of these basis
+    \[\alpha [1,0,1] + \beta [0,1,1] = [\alpha , \beta , \alpha + \beta]\]
+    satisfies the condition to be a part of the null space.
+\end{proof}
+
+\begin{question}
+    Find a basis for the null space of the functional $f$ defined on $\R^3$ by $f(x) = \alpha_1 \xi_1 + \alpha_2 \xi_2 + \alpha_3 \xi_3$, where $\alpha_1 \neq 0$.
+    \label{section2.9-7}
+\end{question}
+
+\begin{proof}
+    Suppose $\alpha_2 = \alpha_3 = 0$. Then, the null space is given by the $\xi_2\xi_3-$plane, i.e any points of the form $(0,\xi_2 , \xi_3)$. Similarly, if $\alpha_2$ or $\alpha_3$ is zero, then the null space is given by $\{(x,y,z) \mid z = \frac{-\alpha_3}{\alpha_1}x , y \in R\}$ and $\{(x,y,z) \mid y = \frac{-\alpha_2}{\alpha_1}x , z \in R\}$ respectively. Instead of setting a condition on $\alpha_2$ or $\alpha_3$, we can also express it as $\{(x,0,z) \mid \frac{-\alpha_3}{\alpha_1}x\}$ and $\{(x,y,0) \mid y = \frac{-\alpha_2}{\alpha_1}x\}$. The union of these two sets results in the null space.
+\end{proof}
+
+\begin{question}
+    If $Z$ is an $(n-1)-$dimensional subspace of an $n-$dimensional vector space $X$, show that $Z$ is the null space of a suitable linear functional $f$ on $X$, which is uniquely determined to within a scalar multiple.
+    \label{section2.9-8}
+\end{question}
+\begin{proof}
+    Let the basis for $Z$ be denoted by $\{z_1 , \ldots , z_{n-1}\}$, that can be extended to the basis of $X$ as $\{z_1 , \ldots , z_{n-1} , z_n\}$. Define the dual basis to be $\{f_1 , \ldots , f_n\}$ where $f_i(z_j) = \mathbbm{1}\{z_i = z_j\}$. We define $f$ as 
+    \[f = \sum_{i=1}^n f(z_i)f_i.\]
+    Then, for some $z \in Z = \sum_{i=1}^{n-1} \alpha_j z_j$, we have
+    \[f(z) = \sum_{i=1}^n f(z_i) f_i(z)= \sum_{i=1}^{n-1} f(z_i) \alpha_i.\]
+    Thus, to show the existence of a linear functional that contains $Z$ as a null space, it suffices to set $f(z_i) = 0 \;\forall i \in [n-1]$. Set $f(z_n)$ to be some constant $c$, then, we have for any $x = \sum_{i=1}^n \beta_i z_i$, 
+    \[f(x) = \sum_{i=1}^n f(z_i) f_i(x) = \sum_{i=1}^n f(z_i) \beta_i = f(z_n)\beta_n = c\beta_n. \]
+    Thus, for a fixed $x$, all such functionals differ by a scalar multiple of the last coordinate.
+\end{proof}
+
+\begin{question}
+    Let $X$ be the vector space of all real polynomials of a real variable and of degree less than a given $n$, together with the polynomial $x = 0$. Let $f(x) = x^{(k)}(a)$, the value of the $k^{th}$ derivative of $x \in X$ at a fixed $a \in \R$. Show that $f$ is a linear functional in $X$.
+    \label{section2.9-9}
+\end{question}
+\begin{proof}
+    If $k \g n$, then $f(x) = 0$ which is always linear. We deal with the more interesting case, where $k \leq n$. Suppose $x , y \in X$. Assume both $x$ and $y$ are polynomials of degree $\l k$. Then, $\alpha x + \beta y$ is also a polynomial of degree $\l k$. Hence, $f(\alpha x + \beta y) = 0$, which is again linear since $f(x) = f(y) = 0$. So, we deal with the case where $x$ and $y$ have degrees at least $k$. In such a case, $x^{(k)}$ and $y^{(k)}$ will be polynomials of degrees $\textrm{deg}(x) - k$ and $\textrm{deg}(y) - k \leq (n-k)$. Thus, we can define the functional $f$ as an operator $T$ that maps the input polynomials to a space with polynomials of degree at most $(n-k)$ and then a functional evaluator $f^\prime$ that evaluates the polynomial at a fixed point $a \in \R$. Thus, we wish to show $f = f^\prime T$ is linear. Now, we first show $T$ is linear:
+    \[T(\alpha x + \beta y) = (\alpha x + \beta y)^{(k)} = ((\alpha x + \beta y)^{(k-1)})^\prime = \ldots = ((\ldots(((\alpha x + \beta y)^\prime)^\prime)\ldots)^\prime)^\prime. \]
+    Now, repeatedly expanding $((\ldots(((\alpha x + \beta y)^\prime)^\prime)\ldots)^\prime)^\prime$ from the inside would result in $\alpha x^{(k)} + \beta y^{(k)}$. Thus $T$ is linear. Also, 
+    \[f^\prime(\alpha x + \beta y) = (\alpha x + \beta y)(a) = \alpha x(a) + \beta y(a) = \alpha f^\prime(x) + \\beta f^\prime(y)\]
+    and hence, $f^\prime $ is linear. Thus, the composition of $T$ and $f^\prime$ is also linear.
+\end{proof}
+
+\begin{question}
+    let $Z$ be a proper subspace of an $n-$dimensional vector space $X$ and let $x_0 \in X - Z$. Show that there is a linear functional $f$ on $X$ such that $f(x_0) = 1$ and $f(x) = 0$ for all $x \in Z$.
+    \label{section2.9-10}
+\end{question}
+\begin{proof}
+    First, let the basis of $Z$ be $\{z_1 , \ldots z_m\}$. Then, $\{z_1 , \ldots ,z_m , x_0\}$ is linearly independent since $x_0 \in Z$. We can extend this to a basis for $X$ as $\{z_1 , \ldots , z_m , x_0 , x_{m+2},  \ldots , x_n\}$. Define a functional $f$ such that $f(z_i) = 0$ and $f(x_0) = 1$. Thus, we can define $f$ as
+    \[f = \sum_{i=1}^m f(z_i) \mathbbm{1}\{\cdot=z_i\} + f(x_0) \mathbbm{1}\{\cdot = x_0\} + \sum_{i=m+2}^n f(x_i) \mathbbm{1}\{\cdot=x_i\} =  f(x_0) \mathbbm{1}\{\cdot = x_0\} + \sum_{i=m+2}^n f(x_i) \mathbbm{1}\{\cdot=x_i\}\]
+    Then, for any $z \in Z = \sum_{i=1}^m \beta_i z_i$, we have $f(z) = 0$. 
+    Hence, we have defined a function by specifying the values on the basis vectors.
+\end{proof}
+
+\begin{question}
+    If $x \neq y \in X$ and $X$ is finite dimensional, show that there is a linear functional $f$ such that $f(x) \neq f(y)$.
+    \label{section2.9-11}
+\end{question}
+\begin{proof}
+    Suppose not. Then, $f(x) = f(y) \implies f(x) - f(y) = 0 = f(x - y)$ for all possible functionals $f \in X^\star$. Thus, $x-y = 0$, which is a contradiction.
+\end{proof}
+
+\begin{question}
+    If $f_1 , \ldots , f_p$ are linear functionals on an $n-$dimensional vector space $X$, where $p < n$, show that there is a vector $x \neq 0$ in $X$ such that $f_1(x) = 0 , \ldots f_p(x) = 0$.
+    \label{section2.9-12}
+\end{question}
+\begin{proof}
+    Let $x = \sum_{i=1}^n \alpha_i e_i$. Then, using the facts that $f_1(x) = 0 , \ldots , f_p(x) = 0$, we get
+    \[\begin{bmatrix}
+        f_1(e_1) & f_1(e_2) & \ldots & f_1(e_n)\\
+        f_2(e_1) & f_2(e_2) & \ldots & f_2(e_n)\\
+        \vdots & \vdots & \ldots & \vdots\\
+        f_p(e_1) & f_p(e_2) & \ldots & f_p(e_n)
+    \end{bmatrix}
+    \begin{bmatrix}
+        \alpha_1 \\ \alpha_2 \\\vdots \\\alpha_n
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        0 \\ 0 \\ \vdots \\ 0
+    \end{bmatrix}\]
+    which results in $p$ equations with $n$ unknowns. Thus, there has to be a non-trivial solution. Another way to look at it is as follows: suppose $x = 0$ is the only such vector. Then, define a mapping $T: X \mapsto \R^p$ such that $T(x) = (f_1(x) , \ldots ,f_p(x)).$ Then, $T(0) = 0$, but there exists no other vector $x$ such that $T(x) = 0$. Hence, $T$ is injective. Thus, $\dim X \leq p \implies n\leq p$. This is a contradiction.
+\end{proof}
+
+\begin{question}
+    Let $Z$ be a proper subspace of an $n-$dimensional vector space $X$, and let $f$ be a linear functional on $Z$. Show that $f$ can be extended linearly to $X$, that is, there is a linear functional $\tilde{f}$ on $X$ such that $\tilde{f}\mid_Z = f$.
+    \label{section2.9-13}
+\end{question}
+\begin{proof}
+        Let $\{z_1 , \ldots , z_m\}$ be the basis for $Z$ that can be extended to the basis of $X$, as in $\{z_1 , \ldots , z_m , z_{m+1} , \ldots , z_n\}$. Define $\{f_1 , \ldots  ,f_n\}$ to be the dual basis as $f_i(z_j) = \mathbbm{1}\{z_i = z_j\}$. Thus, we can define $\tilde{f}$ as
+        \[\tilde{f} = \sum_{i=1}^n f(z_i) f_i.\]
+        Now, set $\tilde{f}(z_i) = f(z_i) \;\forall i \in [m]$. Then, for any $z = \sum_{i=1}^m \alpha_i z_i \in Z$, we have
+        \[\tilde{f}(z) = \sum_{i=1}^n \tilde{f}(z_i) f_i\left(\sum_{i=1}^m \alpha_i z_i\right)  = \sum_{i=1}^m f(z_i) \alpha_i\]
+        where we use the fact that $\tilde{f}(z_i) = f(z_i) \;\forall i \in [m]$. Thus, $\tilde{f}$ restricted to $Z$ results in $f$, while $\tilde{f}$ is linear.
+\end{proof}
+
+\begin{question}
+    Let the functional $f$ on $\R^2$ be defined by $f(x) = 4\xi_1 - 3\xi_2$. Regard $\R^2$ as a subspace of $\R^3$ given by $\xi_3 = 0$. Determine all linear extensions $\tilde{f}$ of $f$ from $\R^2$ to $\R^3$.
+    \label{section2.9-14}
+\end{question}
+\begin{proof}
+   Let $\{f_1 , f_2 , f_3\}$ represent the dual basis of the extension $\tilde{f}$. Thus, 
+   \[\tilde{f} = \tilde{f}(e_1)f_1 + \tilde{f}(e_2)f_2 + \tilde{f}(e_3)f_3.\]
+   Now, for any $x \in \R^2$ of the form $(\xi_1 , \xi_2 ,0)$, we have
+   \[\tilde{f}(x) = \tilde{f}(e_1)\xi_1 + \tilde{f}(e_2)\xi_2\]
+   Since the restriction of $\tilde{f}$ on $\R^2$ should be the same as $f$, we get $\tilde{f}(e_1) = 4$ and $\tilde{f}(e_2) = -3$.
+   Now, for any point $x \in \R^3$ of the form $(\xi_1 , \xi_2 , \xi_3)$, we have
+   \[\tilde{f}(x) = 4\xi_1 - 3 \xi_2 + \tilde{f}(e_3) \xi_3.\]
+   Thus, we have ensured that the restriction of $\tilde{f}$ is $f$ on $\R^2$, and setting $\tilde{f}(e_3)$ to various values would result in various different linear functionals.
+    
+\end{proof}
+
+\begin{question}
+    Let $Z \subset \R^3$ be the subspace represented by $\xi_2 = 0$ and let $f$ on $Z$ be defined by $f(x) = (\xi_1 - \xi_3)/2$. Find a linear extension $\tilde{f}$ of $f$ to $\R^3$ such that $\tilde{f}(x_0) = k$, where $x_0 = (1,1,1)$. Is $\tilde{f}$ unique?
+    \label{section2.9-15}
+\end{question}
+\begin{proof}
+    We will use the ideas from \ref{section2.9-14}. Define $\{f_1 , f_2 , f_3\}$ to be the dual basis and $\tilde{f}$ to be the extension of $f$ from $Z$ to $\R^3$. Then, we have
+    \[\tilde{f} = \tilde{f}(e_1)f_1 + \tilde{f}(e_2)f_2 + \tilde{f}(e_3)f_3.\]
+    Now, evaluating $\tilde{f}$ on $x \in Z$ should result in the functional $f$, or in other words, for $x = (\xi_1 , 0 , \xi_3)$, we have
+    \[\tilde{f}(x) = \tilde{f}(e_1)\xi_1 +  \tilde{f}(e_3)\xi_3 = f(x) \implies \tilde{f}(e_1) = 1/2 , \tilde{f}(e_3) = -1/2.\]
+    Now, to obtain $\tilde{f}(x_0)$, where $x_0 = (1,1,1)$, we get
+    \[\tilde{f}(x_0) = \tilde{f}(e_1) + \tilde{f}(e_1) + \tilde{f}(e_1) = \tilde{f}(e_2) = k \implies \tilde{f}(e_2) = k\]
+    Thus, the extension $\tilde{f}$ is given by $(\xi_1 + 2\xi_2 - \xi_3)/2$. Yes, this extension is unique.
+\end{proof}

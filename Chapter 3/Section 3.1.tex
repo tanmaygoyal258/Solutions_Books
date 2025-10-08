@@ -1,0 +1,231 @@
+\subsection{Inner Product Space.
+Hilbert Space.}
+
+
+\begin{question}
+    Prove (4)
+    \label{section3.1-1}
+\end{question}
+\begin{proof}
+    We wish to prove
+    \[\norm{x+y}^2 + \norm{x-y}^2 = 2(\norm{x}^2 + \norm{y}^2).\]
+    We know that $\norm{x} = \inner{x}{x}^{1/2}$, and hence, 
+    \begin{align*}
+        \norm{x+y}^2 + \norm{x-y}^2 &= \inner{x+y}{x+y} + \inner{x-y}{x-y}
+        \\
+        &= \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} + \inner{x}{x} - \inner{x}{y} - \inner{y}{x} + \inner{y}{y}
+        \\
+        &= 2(\inner{x}{x} + \inner{y}{y})
+        \\
+        &=2(\norm{x}^2 + \norm{y}^2)
+    \end{align*}
+\end{proof}
+
+\begin{question}
+    If $x \perp y$ in an inner product space $X$, show that 
+    \[\norm{x+y}^2 = \norm{x}^2 + \norm{y}^2.\]
+    Extend the formula to $m$ mutually orthogonal vectors. 
+    \label{section3.1-2}
+\end{question}
+\begin{proof}
+    Using the definitions of norms ($\norm{x} = \inner{x}{x}^{1/2}$) and orthogonality ($x \perp y \iff \inner{x}{y} = 0$), we get
+    \[\norm{x + y}^2 = \inner{x+y}{x+y} = \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} = \inner{x}{x} + \inner{y}{y} = \norm{x}^2 + \norm{y}^2.\]
+    where we use the fact that $\inner{x}{y} = 0  \implies \overline{\inner{x}{y}} = 0 = \inner{y}{x}$. 
+
+    For $m$ mutually orthogonal vectors, this gets extended as
+    \[\norm{\sum_{i=1}^m x_i}^2 = \sum_{i=1}^m \norm{x_i}^2\]
+\end{proof}
+
+\begin{question}
+    If an inner product space $X$ is real, show that conversely, the given relation in \ref{section3.1-2} implies $x \perp y$. Show that this may not hold if $X$ is complex.
+    \label{section3.1-3}
+\end{question}
+\begin{proof}
+    If $X$ is real, then, we have that $\inner{x}{y} = \inner{y}{x}$, and hence, 
+    \[0 = \inner{x+y}{x+y} - \inner{x}{x} - \inner{y}{y} = \inner{x}{y} + \inner{y}{x} \implies \inner{x}{y} = 0 \implies x \perp y.\]
+    However, if $X$ is complex, then
+    \[0 = \inner{x+y}{x+y} - \inner{x}{x} - \inner{y}{y} = \inner{x}{y} + \inner{y}{x} = \inner{x}{y} + \overline{\inner{x}{y}} \implies \Re\inner{x}{y} = 0 \nRightarrow x \perp y.\]
+\end{proof}
+
+\begin{question}
+    If an inner product space $X$ is real, show that the condition $\norm{x} = \norm{y}$ implies $\inner{x+y}{x-y} = 0$. What does this mean geometrically if $X = \R^2$? What does the condition imply if $X$ is complex?
+    \label{section3.1-4}
+\end{question}
+\begin{proof}
+    If $X$ is real, we have
+    \[\inner{x+y}{x-y} = \inner{x}{x} + \inner{y}{x} - \inner{x}{y} - \inner{y}{y} = 0\]
+    since $\inner{x}{x} = \inner{y}{y}$ and since $X$ is real, $\inner{x}{y} = \inner{y}{x}$. Geometrically, this says that $x+y$ and $x-y$ are perpendicular. If $X$ is complex, we have
+    \[\inner{x+y}{x-y} = \inner{x}{x} + \inner{y}{x} - \inner{x}{y} - \inner{y}{y} = 0 \implies \inner{x}{y} = \inner{y}{x} = \overline{\inner{x}{y}} \implies \Im\inner{x}{y} = 0.\]
+\end{proof}
+
+\begin{question}
+    Verify that for any elements in an inner product space
+    \[\norm{z-x}^2 + \norm{z-y}^2 = \frac{1}{2} \norm{x-y}^2 + 2 \norm{z - \frac{1}{2}(x+y)}^2.\]
+    Show that this identity can also be obtained from the parallelogram equality.
+    \label{section3.1-5}
+\end{question}
+\begin{proof}
+    We have that
+    \begin{align*}
+        \norm{z-x}^2 + \norm{z-y}^2 &= 2\inner{z}{z} + \inner{x}{x} + \inner{y}{y} - \inner{x}{z} -\inner{z}{x} - \inner{y}{z} - \inner{z}{y}
+        \\
+        &= 2\inner{z}{z} -  \inner{x + y}{z} - \inner{z}{x+y} + \inner{x}{x} + \inner{y}{y}
+        \\
+        &= 2\inner{z-\frac{1}{2}(x+y)}{z-\frac{1}{2}(x+y)} - \frac{1}{2}\inner{x+y}{x+y} + \inner{x}{x} + \inner{y}{y}
+        \\
+        &= 2 \norm{z - \frac{1}{2}(x+y)}^2 + \frac{1}{2} (\inner{x}{x} - \inner{x}{y} - \inner{y}{x} + \inner{y}{y})
+        \\
+         &= 2 \norm{z - \frac{1}{2}(x+y)}^2 + \frac{1}{2} \norm{x-y}^2
+    \end{align*}
+
+    Now, recall the parallelogram law:
+    \[\norm{x+y}^2 + \norm{x-y}^2 = 2(\norm{x}^2 + \norm{y}^2).\]
+    Substituting $x = z - \frac{1}{2}(x+y)$ and $y = \frac{1}{2}(x+y)$ results in the same claim.
+\end{proof}
+
+\begin{question}
+    Let $x \neq 0$ and $y \neq 0$. (a) If $x \perp y$, show that $\{x,y\}$ is a linearly independent set. (b) Extend the result to mutually orthogonal non-zero vectors $\{x_1 , \ldots , x_m\}$.
+    \label{section3.1-6}
+\end{question}
+\begin{proof}
+    For some $\alpha$ and $\beta$ consider the sum
+    \[\alpha x + \beta y = 0.\]
+    Taking an inner product with $x$ on both sides results in
+    \[\inner{\alpha x + \beta y}{x} = \alpha \inner{x}{x} = 0 \implies x = 0 \text{ or } \alpha = 0.\]
+    Similarly, taking an inner product with $y$ on both sides results in $y = 0$ or $\beta = 0$. Since $x \neq 0$ and $y \neq 0$, we have $\alpha = \beta = 0$. Thus, the vectors are linearly independent.
+
+    A similar result can be shown for $m$ non-zero  mutually orthogonal vectors: consider the sum
+    \[\sum_{i=1}^m \alpha_i x_i = 0.\]
+    Thus, an inner product with $x_j$ results in
+    \[\inner{\sum_{i=1}^m \alpha_i x_i}{x_j} = \alpha_j x_j = 0 \implies \alpha_j = 0\]
+    and in this way, we can show that $\{x_1 , \ldots , x_m\}$ form a linearly independent set.
+\end{proof}
+
+\begin{question}
+    If in an inner product space, $\inner{x}{u} = \inner{x}{v}$ for all $x$, show that $u = v$.
+    \label{section3.1-7}
+\end{question}
+\begin{proof}
+    First, note that
+    \[\inner{x}{y-z} = \overline{\inner{y-z}{x}} = \overline{\inner{y}{x} - \inner{z}{x}} = \overline{\overline{\inner{x}{y}} - \overline{\inner{x}{z}}} = \inner{x}{y} - \inner{x}{z}.\]
+    Thus, we are given that $\inner{x}{u-v} = 0$ for all $x$. Then, this holds for $x = u-v$ as well. We get
+    \[\inner{u-v}{u-v} = 0 = \norm{u-v}^2 \implies \norm{u-v} = 0 \implies u-v = 0 \implies u = v.\]
+    
+\end{proof}
+
+\begin{question}
+    Prove (9).
+    \label{section3.1-8}
+\end{question}
+\begin{proof}
+    We wish to show that for a real inner product
+    \[\inner{x}{y} = \frac{1}{4}(\norm{x+y}^2 - \norm{x-y}^2).\]
+    Now, we know that
+    \[\norm{a+b}^2 = \norm{a}^2 + \norm{b}^2 + \inner{a}{b} + \inner{b}{a}.\]
+    Thus, expanding the RHS gives
+    \[\frac{1}{4}(\norm{x+y}^2 - \norm{x-y}^2) = \frac{1}{4}(\norm{x}^2 + \norm{y}^2 + \inner{x}{y} + \inner{y}{x} - \norm{x}^2 - \norm{y}^2 + \inner{x}{y} + \inner{y}{x}).\]
+    Finally, since $\inner{x}{y} = \inner{y}{x}$ for real inner products, we get the resulting claim.
+\end{proof}
+
+\begin{question}
+    Prove (10).
+    \label{section3.1-9}
+\end{question}
+\begin{proof}
+    We wish to show that for a complex inner product, we have
+    \[\Re \inner{x}{y} = \frac{1}{4}(\norm{x+y}^2 - \norm{x-y}^2)\]
+    \[\Im\inner{x}{y} = \frac{1}{4}(\norm{x+\iota y}^2 - \norm{x- \iota y}^2).\]
+    From \ref{section3.1-8}, we get
+    \[\frac{1}{4}(\norm{x+y}^2 - \norm{x-y}^2) = \frac{1}{4}(\inner{x}{y} + \inner{y}{x} + \inner{x}{y} + \inner{y}{x}) = \frac{1}{4} = \frac{1}{2}(\inner{x}{y} + \overline{\inner{x}{y}}) = \Re \inner{x}{y}. \]
+    Similarly, using \ref{section3.1-8} and substituting $y = \iota y$, we get
+    \[\frac{1}{4}(\norm{x+\iota y}^2 - \norm{x-\iota y}^2) = \frac{1}{2}(\inner{x}{\iota y} + \inner{\iota y}{x}) = \frac{1}{2}(\overline{\iota} \inner{x}{y} + \iota \overline{\inner{x}{y}}) = \frac{i}{2}(\inner{x}{y} - \overline{\inner{x}{y}}) = \Im \inner{x}{y} \iota. \]
+\end{proof}
+
+\begin{question}
+    Let $z_1$ and $z_2$ denote complex numbers. Show that $\inner{z_1}{z_2} = z_1 \overline{z_2}$ defines an inner product, which yields the usual metric on the complex plane. Under what conditions do we have orthogonality?
+    \label{section3.1-10}
+\end{question}
+\begin{proof}
+    First, we show that the conditions for an inner product are fulfilled:
+    \begin{enumerate}
+        \item $\inner{z_1+z_3}{z_2} = (z_1 + z_3)\overline{z_2} = z_1 \overline{z_2} + z_3\overline{z_2} = \inner{z_1}{z_2} + \inner{z_3}{z_2}.$
+        \item $\inner{z_1}{\alpha z_2} = z_1 \overline{\alpha z_2} = \overline{\alpha}z_1 \overline{z_2} = \overline{\alpha}\inner{z_1}{z_2}$.
+        \item $\inner{z_1}{z_2} = z_1 \overline{z_2} = \overline{z_2 \overline{z_1}} = \overline{\inner{z_2}{z_1}}$.
+        \item $\inner{z}{z} = z \overline{z} = \abs{z}^2 \geq 0$.
+        \item $\inner{z}{z} = 0 \implies \abs{z}^2 = 0 \implies z = 0$.
+    \end{enumerate}
+    Thus, it is a valid inner product that defines the norm:
+    \[\norm{z}^2 = \inner{z}{z} = \abs{z}^2.\]
+    $z_1$ and $z_2$ are orthogonal to each other if $\inner{z_1}{z_2} = z_1 \overline{z_2} = 0$.
+\end{proof}
+
+\begin{question}
+    Let $X$ be the vector space of all ordered pairs of complex numbers. Can we obtain the norm defined on $X$ by 
+    \[\norm{x} = \abs{\xi_1} + \abs{\xi_2}\]
+    from an inner product?
+    \label{section3.1-11}
+\end{question}
+\begin{proof}
+    We know that a norm is obtainable from an inner product if the parallelogram law holds, i.e
+    \[\norm{x+y}^2 + \norm{x-y}^2 = 2\norm{x}^2 + 2\norm{y}^2.\]
+    Consider $x = (1 , \iota)$ and $y = (1 , -\iota)$. Then, 
+    \[\norm{x+y}^2 = \abs{2}^2  = 4 , \norm{x-y}^2 = \abs{2\iota}^2 = 4, 2\norm{x}^2 = 2(\abs{1} + \abs{\iota})^2 = 8, 2\norm{y}^2 = 2(\abs{1} + \abs{-\iota})^2 = 8.\]
+    Hence, we get $\norm{x+y}^2 + \norm{x-y}^2 \neq 2\norm{x}^2 + 
+    2\norm{y}^2$. Thus, it cannot be derived from an inner product.
+\end{proof}
+
+\begin{question}
+   What is $\norm{x}$ in 3.1-6 if $x = \{\xi_1 , \xi_2 , \ldots\}$, where $(a)\; \xi_n = 2^{-n/2}$, $(b)\; \xi_n = 1/n$?
+    \label{section3.1-12}
+\end{question}
+\begin{proof}
+    In 3.1-6, we consider the Hilbert sequence space $\ell^2$, where the inner product is defined by
+    \[\inner{x}{y} = \sum_{i=1}^\infty \xi_i \overline{\eta_i}.\]
+    Now, 
+    \begin{enumerate}
+        \item[(a)] $\norm{x} = \inner{x}{x}^{1/2} = \sqrt{\sum_{n=1}^\infty 2^{-n/2} \cdot 2^{-n/2}} = \sqrt{\sum_{i=1}^\infty 2^{-n}} = 1.$
+        \item[(b)] $\norm{x} = \inner{x}{x}^{1/2} = \sqrt{\sum_{n=1}^\infty 1/n^2} = \frac{\pi}{\sqrt{6}}. $ 
+    \end{enumerate}
+\end{proof}
+
+\begin{question}
+    Verify that for continuous functions, the inner product in 3.1-5 satisfies (IP1) to (IP4).
+    \label{section3.1-13}
+\end{question}
+\begin{proof}
+    We wish to show that the inner product defined via
+    \[\inner{x}{y} = \int_{a}^{b} x(t) \overline{y(t)} \;dt\]
+    satisfies all the properties of an inner product. 
+    \begin{enumerate}
+        \item $\inner{x+z}{y} = \int_{a}^{b} (x+z)(t) \overline{y(t)} \;dt = \int_{a}^b x(t) \overline{y(t)}\;dt +  \int_{a}^b z(t) \overline{y(t)}\;dt = \inner{x}{y} + \inner{z}{y}.$
+        \item $\inner{x}{\alpha y} = \int_{a}^{b} x(t) \overline{\alpha y(t)} \; dt = \overline{\alpha} \int_{a}^{b} x(t) \overline{y(t)} \;dt = \overline{\alpha} \inner{x}{y}.$
+        \item $\inner{x}{y} = \int_{a}^{b} x(t) \overline{y(t)} \; dt = \int_{a}^{b} \overline{y(t) \overline{x(t)}} \; dt = \overline{\int_{a}^b y(t) \overline{x(t)} \; dt} = \overline{\inner{y}{x}}$.
+        \item $\inner{x}{x} = \int_{a}^b x(t) \overline{x(t)} \; dt = \int_{a}^{b} \abs{x(t)}^2 \;dt \geq 0$. Also, $x = 0 \implies \inner{x}{x} = 0$. Also, $\inner{x}{x} = \int_{a}^{b} \abs{x(t)}^2 \;dt = 0 \implies x = 0.$
+    \end{enumerate}
+    Thus, it satisfies all properties of an inner product.
+\end{proof}
+
+\begin{question}
+    Show that the norm on $C[a,b]$ is invariant under a linear transformation $t = \alpha \tau + \beta$. Use this to prove the statement in 3.1-8 by mapping $[a,b]$ onto $[0,1]$ and then considering the functions defined by $\tilde{x}(\tau) = 1$, $\tilde{y}(\tau) = \tau$, where $\tau \in [0,1]$.
+    \label{section3.1-14}
+\end{question}
+\begin{proof}
+    Recall that the norm on $C[a,b]$ is defined as follows:
+    \[\norm{x} = \max_{t \in [a,b]} \abs{x(t)}.\]
+    Define $t^\prime = \frac{t-a}{b-a}$. Then, $t^\prime \in [0,1]$. We have
+    \[\norm{x} = \max_{t^\prime \in [0,1]} \abs{x((b-a)t^\prime + a)}.\]
+    Now $\tilde{x}(\tau) = 1 \;\forall \tau \in [0,1] \implies \norm{\tilde{x}} = 1$. Also, $\tilde{y}(\tau) = \tau \;\forall \tau \in [0,1] \implies \norm{\tilde{y}} = 1$. Thus, we have
+    \[\norm{x + y}^2 = \max_{\tau \in [0,1]} \abs{1 + \tau} = 4 , \;\norm{x-y}^2 = \max_{\tau \in [0,1]} \abs{1-\tau} = 1, \;2\norm{x}^2 = 2 , \;2\norm{y}^2 = 2\] which gives us $ \norm{x+y}^2 + \norm{x-y}^2 \neq 2\norm{x}^2 + 2\norm{y}^2$.
+\end{proof}
+
+\begin{question}
+    If $X$ is a finite dimensional vector space and $(e_j)$ is a basis for $X$, show that an inner product on $X$ is completely determined by its values $\gamma_{jk} = \inner{e_j}{e_k}$. Can we choose such scalars $\gamma_{jk}$ in a completely arbitrary fashion?
+    \label{section3.1-15}
+\end{question}
+\begin{proof}
+    Let the basis for $X$ be $\{e_1 , \ldots , e_n\}$. Then, for some $x = \sum_{i=1}^n \alpha_i e_i$ and $y = \sum_{i=1}^n \beta_i e_i$, we have
+    \[\inner{x}{y} = \inner{\sum_{i=1}^n \alpha_i e_i}{\sum_{i=1}^n \beta_i e_i} = \sum_{i=1}^n \sum_{j=1}^n \alpha_i \overline{\beta_j} \inner{e_i}{e_j}.\]
+    Thus, simply knowing $\inner{e_i}{e_j}$ determines the inner product between any two points. No, we cannot choose these values arbitrarily because we need to satisfy the properties of an inner product such as:
+    \[\overline{\inner{y}{x}} = \overline{\sum_{i=1}^n \sum_{j=1}^n \beta_j \overline{\alpha_i} \inner{e_i}{e_j}} = \sum_{i=1}^n \sum_{j=1}^n \alpha_i \overline{\beta_j}\overline{\inner{e_i}{e_j}} \implies \inner{e_i}{e_j} = \overline{\inner{e_i}{e_j}}.\]
+    \[\inner{x}{x} = \sum_{i=1}^n \sum_{j=1}^n \alpha_i \overline{\alpha_j}\inner{e_i}{e_j} \geq 0 \implies \inner{e_i}{e_j} \geq 0\]
+\end{proof}

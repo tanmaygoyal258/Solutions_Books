@@ -1,0 +1,183 @@
+\subsection{Normed Spaces of Operators. Dual Space}
+
+\begin{question}
+    What is the zero element of the vector space $B(X,Y)$? The inverse of a $T \in B(X,Y)$ in the sense of Def 2.1-1?
+    \label{section2.10-1}
+\end{question}
+\begin{proof}
+    The zero element is simply the zero operator: $T : X \mapsto Y$, $Tx = 0$. The definition 2.1-1 defines a vector space which should constitute addition and multiplication operations. The additive inverse then is $-T$.
+\end{proof}
+
+\begin{question}
+    The operators and functionals considered in the text are defined on the entire space $X$. Show that without that assumption, in the case of functionals we still have the following theorem. If $f$ and $g$ are bounded linear functionals with domains in a normed space $X$, then for any nonzero scalars $\alpha$ and $\beta$ the linear combination $h = \alpha f + \beta g$ is a bounded linear functional with domain $\dom{h} = \dom{f} \cap \dom{g}$.
+    \label{section2.10-2}
+\end{question}
+\begin{proof}
+    If $\alpha \neq 0$ and $\beta \neq 0$, then $x \in \dom{h} \implies x \in \dom{f}$ and $x \in \dom{g}.$ Thus, $\dom{h} \subset \dom{f} \cap \dom{g}$. Similarly, for some $x \in \dom{f} \cap \dom{g}$, $f(x)$ and $g(x)$ are defined, and hence, $h(x)$ is defined. Thus, $\dom{f} \cap \dom{g} \subset \dom{h}$. This gives us $\dom{h} = \dom{f} \cap \dom{g}$. Now, for some $x , y \in \dom{h}$, we have
+    \[h(\gamma x + \delta y) = (\alpha f + \beta y)(\gamma x + \delta y) = \alpha f(\gamma x + \delta y) + \beta g(\gamma x + \delta y) = \alpha \gamma f(x) + \beta \gamma g(x) + \alpha \delta f(y) + \beta \gamma g(y) = \gamma h(x) + \delta h(y) \]
+    Hence, $h$ is linear. Further, we have
+    \[\abs{h(x)} = \abs{(\alpha x + \beta y)(x)} \leq \norm{\alpha x + \beta y} \norm{x} \leq (\abs{\alpha}\norm{f} + \abs{\beta} \norm{y})\norm{x}\]
+    Since, $f$ and $g$ is bounded, we have $\norm{h} = \abs{\alpha}\norm{f} + \abs{\beta} \norm{y}$ and hence, $h$ is also bounded.
+\end{proof}
+
+\begin{question}
+    Extend the theorem in \ref{section2.10-2} to bounded linear operators $T_1$ and $T_2$.
+    \label{section2.10-3}
+\end{question}
+\begin{proof}
+    Let $T = \alpha T_1 + \beta T_2$. Once again, let $x \in \dom{T}$, then $x \in \dom{T_1}$ and $x \in \dom{T_2}$ and hence, $\dom{T} \subset \dom{T_1} \cap \dom{T_2}$. Let $x \in \dom{T_1} \cap \dom{T_2}$, then both $T_1 x$ and $T_2 x$ is defined, and hence, $Tx$ is defined. Hence, $x \in \dom{T}$ resulting in $\dom{T_1} \cap \dom{T_2} \subset \dom{T}$. Thus, we get $\dom{T} = \dom{T_1} \cap \dom{T_2}.$ Now, for some $x , y \in \dom{T}$, we have
+    \[T(\gamma x + \delta y) = (\alpha T_1 + \beta T_2)(\gamma x + \delta y) = \alpha T_1(\gamma x + \delta y) + \beta T_2(\gamma x + \delta y) = \alpha \gamma T_1 x + \beta \gamma T_2 x + \alpha \delta T_1 y + \beta \delta T_2 y = \gamma Tx + \delta T y\]
+    and hence, $T$ is linear. Also,
+    \[\norm{Tx} = \norm{(\alpha T_1 + \beta T_2)x} \leq \norm{\alpha T_1 + \beta T_2} \norm{x} \leq (\abs{\alpha} \norm{T_1} + \abs{\beta} \norm{T_2})\norm{x}\]
+    and hence, $\norm{T} = \abs{\alpha} \norm{T_1} + \abs{\beta} \norm{T_2}$. Since $T_1$ and $T_2$ is bounded, $T$ is bounded.
+\end{proof}
+
+\begin{question}
+    Let $X$ and $Y$ be normed spaces and $T_n : X \mapsto Y$ be bounded linear operators. Show that convergence $T_n \rightarrow T$ implies that for every $\epsilon \g 0$, there is a $N$ such that for all $n \g  N$ all $x$ in a given closed ball $\norm{T_n x - T x} \l \epsilon$.
+    \label{section2.10-4}
+\end{question}
+\begin{proof}
+    Let $x \in X$. Now, we have
+    \[\norm{T_n x - T x} \leq \norm{T_n - T} \norm{x}.\]
+    Since $T_n \rightarrow T$, we have for every $\epsilon^\prime \g 0$, $\exists N$ such that for all $n \g N$, $\norm{T_n - T} \l \epsilon^\prime.$ Substituting this back, we get that for every $n \g N$,
+    \[\norm{T_n x - T x} \leq \epsilon^\prime \norm{x} = \epsilon.\]
+    Thus, putting $\epsilon^\prime = \epsilon \norm{x}$ prove the claim.
+\end{proof}
+
+
+\begin{question}
+    Show that 2.8-5 is in agreement with 2.10-5.
+\label{section2.10-5}
+\end{question}
+\begin{proof}
+    2.8-5 says the dot product functional $f : \R^3 \mapsto \R^3$ with one factor keep fixed can be defined as 
+    \[f(x) = x \cdot a = \sum_{i=1}^3 \xi_i \alpha_i\]
+    where $a = (\alpha_1 , \alpha_2 , \alpha_3) \in \R^3$. In such a case, $\norm{f} = \norm{a}$. Also, 2.10-5 says that the dual space of $\R^n$ is $\R^n$.
+
+    Let $n = 3$. Denote the dot product functional $f \in \R^{3\prime}$ as 
+    \[f(x) = \sum_{i=1}^3 \xi_i f(e_i)\]
+    and from the definition of the dot product, we have
+    \[f(x) = \sum_{i=1}^3 \xi_i \alpha_i.\]
+    Comparing values gives us $f(e_i) = \alpha_i \;\forall i \in [3].$ Denote $a = (\alpha_1 , \alpha_2 , \alpha_3)$. Now, from 2.10-5, there exists an isomorphic mapping $T$ such that $Tf = a$ and hence, $\norm{f} = \norm{a}$. This is in direct accordance with 2.8-5.
+\end{proof}
+
+\begin{question}
+    If $X$ is the space of all ordered $n-$tuples of real numbers and $\norm{x} = \max_{i} \abs{\xi_i}$, where $x = (\xi_1 , \ldots , \xi_n)$, what is the corresponding norm on the dual space $X^\prime$. 
+    \label{section2.10-6}
+\end{question}
+\begin{proof}
+    Let $f \in X^\prime$. Denote the basis of $X$ as $\{e_1 , \ldots , e_n\}.$ We can write $f$ as
+    \[f(x) = \sum_{i=1}^n \xi_i f(e_i).\]
+    Then, we have
+    \[\abs{f(x)} \leq \sum_{i=1}^n \abs{\xi_i f(e_i)} \leq \left(\max_{i \in [n]} \abs{\xi_i} \right) \sum_{i=1}^n \abs{f(e_i)} = \left(\sum_{i=1}^n \abs{f(e_i)} \right) \norm{x}.\]
+    Thus, we have
+    \[\norm{f} = \sup_{\norm{x} = 1} \abs{f(x)} \leq \sum_{i=1}^n \abs{f(e_i)}.\]
+    At the same time, for $x = \sum_{i=1}^n \frac{\abs{f(e_i)}}{f(e_i)} e_i$, we have, $\norm{x} = 1$, and hence, 
+    \[\abs{f(x)} = \abs{\sum_{i=1}^n \abs{f(e_i)}} = \sum_{i=1}^n \abs{f(e_i)} \leq \norm{f} \norm{x} \implies \norm{f} \geq  \sum_{i=1}^n \abs{f(e_i)}\]
+    and hence, we get
+    \[\norm{f} =  \sum_{i=1}^n \abs{f(e_i)}\]
+\end{proof}
+
+\begin{question}
+    What conclusion can we draw from 2.10-6 with respect to the space $X$ of all ordered $n-$tuples of real numbers.
+    \label{section2.10-7}
+\end{question}
+\begin{proof}
+    If the norm on $X$ is $l_\infty$ norm, then the norm on the dual space is $l_1$ norm. Moreover, we can find a mapping $T : X^\prime \mapsto X$ that is norm-preserving.
+\end{proof}
+
+\begin{question}
+    Show that the dual space of the space $c_0$ is $\ell^1$.
+    \label{section2.10-8}
+\end{question}
+\begin{proof}
+    Recall that the space $c_0$ is a subspace of $\ell^\infty$ consisting of sequences of scalars converging to zero. Let $(x_n)$ be some sequence in $c_0$, such that each $x_m = (\xi^{(m)}_1 , \xi^{(m)}_2 , \ldots )$ and $\xi^{(m)}_n \rightarrow 0$.
+
+    Now, for the $\ell^\infty$ space, we can have a Schauder basis $(e_1 , e_2 , \ldots )$ such that $x_m = \sum_{i=1}^\infty \xi^{(m)}_i e_i$, and we have a sequence $(x_1 , x_2 , \ldots , )$. Define a functional $f$ such that
+    \[f(x_n) = \sum_{i=1}^\infty f(e_i) \xi^{(n)}_i.\]
+    Then, we have
+    \[\abs{f(x_n)} \leq \sum_{i=1}^n \abs{\xi^{(n)}_i f(e_i)} \leq \left( \max_{i \in [n]} \abs{\xi^{(n)}_i}\right) \sum_{i=1}^n \abs{f(e_i)}  = \left( \sum_{i=1}^n \abs{f(e_i)} \right) \norm{x}.\]
+    Thus, 
+    \[\sup_{\norm{x} = 1} \abs{f(x)} \leq \sum_{i=1}^n \abs{f(e_i)}.\]
+    Now, at the same time, define $\xi^{(n)}_i = \frac{\abs{f(e_i)}}{f(e_i)}$ if $i \leq k$ and $f(e_i) \neq 0$, else $\xi^{(n)}_i = 0$. This gives us $\norm{x} = 1$, and hence,  we have
+    \[\abs{f(x_n)} = \sum_{i=1}^k \abs{f(e_i)} \leq \norm{f} \norm{x} \implies \norm{f} \geq  \sum_{i=1}^k \abs{f(e_i)}.\]
+    Since $k$ is arbitrary, taking $k \rightarrow \infty$, we get that
+    \[\norm{f} \geq \sum_{i=1}^\infty \abs{f(e_i)}.\]
+    Consider the point $c = (f(e_1) , f(e_2) , \ldots , )$. Then, we have
+    \[\norm{f} = \norm{c}_1.\]
+    Hence, we can define a mapping $T : c_0^\prime \mapsto \ell^1$ such that it is norm preserving.
+\end{proof}
+
+\begin{question}
+    Show that a linear functional $f$ on a vector space $X$ is uniquely determined by its values on a Hamel basis for $X$.
+    \label{section2.10-9}
+\end{question}
+\begin{proof}
+    Let the Hamel basis be defined as $\{e_1 , e_2\}$, and choose values $\gamma_i$ corresponding to $e_i$. Define two functionals $f$ and $g$ with the same values on the Hamel basis. Then, for some fixed $x = \sum \xi_i e_i$, we have
+    \[f(x) = \sum \gamma_i \xi_i \;,\; g(x) = \sum \gamma_i \xi_i \implies (f-g)(x) = 0 \;\forall x \in X \implies f = g\]
+    Thus, it is a unique functional.
+\end{proof}
+
+\begin{question}
+    Let $X$ and $Y\neq\{0\}$ be normed spaces, where $\dim X = \infty$. Show that there is at least one unbounded linear operator $T : X \mapsto Y$.
+    \label{section2.10-10}
+\end{question}
+\begin{proof}
+        Consider a map $T : X \mapsto Y$ such that $Tx_n = n y$ for some fixed $y$ such that $\norm{y} = 1$. Also, WLOG, assume $\norm{x_i} = 1 \forall i \in [n]$. Then, 
+        \[\norm{T} = \sup_{\norm{x} = 1} \norm{Tx} = n \norm{y}\]
+        which is unbounded for each $n$.
+\end{proof}
+
+\begin{question}
+    If $X$ is a normed space and $\dim X = \infty$, show that the dual space $X^\prime$ is not identical with the algebraic dual space $X^\star$.
+    \label{section2.10-11}
+\end{question}
+\begin{proof}
+        First, set $Y = \R$ or $ \C$, so that we can talk about operators. From \ref{section2.10-10}, we see that when $\dim X = \infty$, there exists an unbounded linear operator, and hence $X^\star \neq X^\prime$.
+\end{proof}
+
+\begin{question}
+    Examples in the text can be used to prove the completeness of certain spaces. How? And for what spaces?
+    \label{section2.10-12}
+\end{question}
+\begin{proof}
+        We can use the concept of isometric spaces. Since isometries are norm preserving, achieving completeness in one space is equivalent to achieving completeness in the other. Let $X$ and $\tilde{X}$ be isometric spaces such that $T : X \mapsto \tilde{X}$ is an isometry and is bounded. For some Cauchy sequence $(x_n) \in X$, we have that for every $\epsilon \g 0$, $\exists N(\epsilon)$ such that for all $m,n \g N(\epsilon)$, we have $\norm{x_m  -x_n} \l \epsilon$. Thus, we also have
+        \[\norm{Tx_m - Tx_n} \l \norm{T} \epsilon.\]
+        Hence, $(Tx_n)$ is also Cauchy.  Further, since $X$ is complete, say $(x_n) \rightarrow x$, and hence, 
+        $\norm{Tx_n - Tx} \l \norm{T} \norm{x_n - x} = \norm{T} \epsilon$. Thus, the sequence $(Tx_n)$ also converges, and hence, $\tilde{X}$ is complete.
+\end{proof}
+
+\begin{question}
+    
+    Let $M \neq \emptyset$ be any subset of a normed space $X$. The annihilator $M^a$ of $M$ is defined to be the set of all bounded linear functionals on $X$ which are zero everywhere on $M$. Thus, $M^a$ is a subset of the dual space $X^\prime$ of $X$. Show that $M^a$ is a vector subspace of $X^\prime$ and is closed. What are $X^a$ and $\{0\}^a$?
+    \label{section2.10-13}
+\end{question}
+\begin{proof}
+       Since $M^a$ consists of bounded linear functionals, it is easy to see that addition and multiplication operations hold. Hence, it is a vector subspace. Now, let $f \in \overline{M^a}$. Then, by the an accumulation point, there exists some sequence $f_n \in M^a$ such that $f_n \rightarrow f$. We wish to show that $f \in M^a$. $f_n \rightarrow f$, we have that for all $\epsilon \g 0$, $\exists N(\epsilon)$ such that for all $n \g N(\epsilon)$, 
+       \[\norm{f_n - f} \l \epsilon.\]
+       Thus, we have $f = (f - f_n) + f_n \implies \norm{f} \leq \epsilon + \norm{f_n}$, and hence, $f$ is bounded. Further, for some $m \in M$, we have
+       \[\norm{f_n m - fm} \leq \norm{f_n - f} \norm{m} \implies \lim_{n \rightarrow \infty} \norm{f_n m - fm} = 0\]
+       and hence, $fm = 0$, thus, $f \in M^a$.
+
+       Now, $X^a$ will be the bounded linear functionals that are zero everywhere on $X$, and hence, $X^a = \{0\}$. Similarly, $\{0\}^a$ is the subset of bounded linear functionals that are zero on $\{0\}$, and hence, $\{0\}^a = X^\prime$.
+\end{proof}
+
+\begin{question}
+    If $M$ is a $m-$dimensional subspace of an $n-$dimensional normed space $X$, show that $M^a$ is $(n-m)-$dimensional subspace of $X^\prime$. Formulate this as a theorem about solutions of a system of linear equations.
+    \label{section2.10-14}
+\end{question}
+\begin{proof}
+        Let the basis for $M$ be $\{e_1 , \ldots , e_m\}$ that is extended to the basis of $X$ as $\{e_1 , \ldots , e_m , e_{m+1} , \ldots , e_n\}$. Define a functional $f$ such that it has the dual basis $\{f_1 , \ldots , f_n\}$. We have
+        \[f = \sum_{i=1}^n f(e_i)f_i.\]
+        If $f \in M ^a$, then for any $m \in M$, $f(m) = 0$. Since this is true for all $m \in M$, setting $f(e_i) = 0 \;\forall i\in[m] $, ensures that $f(m) = 0$ for any $m = \sum_{i=1}^m \alpha_i e_i.$ Thus, $f$ is now $(n-m)-$ dimensional. 
+\end{proof}
+
+\begin{question}
+    Let $M = \{(1,0,-1) , (1,-1,0), (0,1,-1)\} \subset \R^3$. Find a basis for $M^a$.
+    \label{section2.10-15}
+\end{question}
+\begin{proof}
+        For any $x = (\xi_1 , \xi_2 , \xi_3)$, define 
+        \[f(x) = \sum_{i=1}^3 f(e_i) \xi_i\]
+        If $f \in M^a$, we have $f(x) = 0 \;\forall x \in M$. This gives us $f(e_1) = f(e_2) = f(e_3)$. We know that $\R^{3^\prime}$ is isomorphic to $\R^3$ and hence, we can define a mapping $T : \R^{3^\prime} \mapsto \R^3$, $Tf \mapsto (f(e_1) , f(e_2) , f(e_3))$. Since, $f \in M^a \implies f(e_1) = f(e_2) = f(e_3)$, we have that the basis is simply $\{(1,1,1)\} \in \R^3$. Thus, any vector of the form $\alpha(1,1,1) \in \R^3$ uniquely defines a functional in $M^a$.
+\end{proof}
